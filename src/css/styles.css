@@ -6,6 +6,7 @@
 */
 @import url('./reset.css');
 @import url('./fonts.css');
+@import url('./vars.css');
 @import url('./header.css');
 @import url('./hero.css');
 @import url('./exercises.css');
@@ -29,3 +30,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+/* .icon .icon-search {
+  fill: black;
+} */
