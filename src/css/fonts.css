@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'NeueMontrealRegular';
+    src: url('../fonts/NeueMontrealRegular.eot');
+    src: url('../fonts/NeueMontrealRegular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/NeueMontrealRegular.woff2') format('woff2'),
+        url('../fonts/NeueMontrealRegular.woff') format('woff'),
+        url('../fonts/NeueMontrealRegular.ttf') format('truetype'),
+        url('../fonts/NeueMontrealRegular.svg#NeueMontrealRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'NeueMontrealMedium';
+    src: url('../fonts/NeueMontrealMedium.eot');
+    src: url('../fonts/NeueMontrealMedium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/NeueMontrealMedium.woff2') format('woff2'),
+        url('../fonts/NeueMontrealMedium.woff') format('woff'),
+        url('../fonts/NeueMontrealMedium.ttf') format('truetype'),
+        url('../fonts/NeueMontrealMedium.svg#NeueMontrealMedium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'NeueMontrealItalic';
+    src: url('../fonts/NeueMontrealItalic.eot');
+    src: url('../fonts/NeueMontrealItalic.eot?#iefix')
+        format('embedded-opentype'),
+        url('../fonts/NeueMontrealItalic.woff2') format('woff2'),
+        url('../fonts/NeueMontrealItalic.woff') format('woff'),
+        url('../fonts/NeueMontrealItalic.ttf') format('truetype'),
+        url('../fonts/NeueMontrealItalic.svg#NeueMontrealItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+  
