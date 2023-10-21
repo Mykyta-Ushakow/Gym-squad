@@ -1,8 +1,20 @@
-
 .hero {
   padding: 80px 0px 40px;
 }
-
+.flax-container{
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+}
+.hero-web-yoga{
+  display: none;
+}
+.hero-tag-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 10px; /* Устанавливает расстояние между элементами */
+}
 .hero-title h1 {
   color: var(--text-color-dark);
   font-family: var(--main-font);
@@ -17,7 +29,7 @@
 .hero-title p {
   max-width: 335px;
   color: var(--text-color-dark);
-  font-family: var(--main-font); 
+  font-family: var(--main-font);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -36,6 +48,8 @@
 }
 .hero-title h1 svg.hero-mob-svg {
   vertical-align: -5px;
+  width: 38px;
+  height: 38px;
 }
 .hero-img-mob {
   border-radius: 30px;
@@ -48,7 +62,6 @@
 .hero-tag-list {
   display: flex;
   gap: 6px;
-  max-width: 450px;
   align-items: center;
   justify-content: space-between;
   margin-top: 20px;
@@ -65,14 +78,20 @@
   border: 1px solid #242424;
   border-radius: 1000px;
   display: block;
+  width: fit-content;
 }
-
-.hero-tag-item {
-  flex: 1 1 calc(33.33% - 26px);
-  max-width: calc(33.33% - 26px);
+@media screen and (max-width: 374px) {
+  .hero-img-tab {
+    display: none;
+  }
+  .hero-img-web {
+    display: none;
+  }
+  .hero-tag-list {   
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
-
-
 @media screen and (max-width: 767px) {
   .hero-img-tab {
     display: none;
@@ -88,6 +107,67 @@
   .hero-img-web {
     display: none;
   }
+  .hero {
+    padding: 100px 0px 64px;
+  }
+  .hero-title h1 svg.hero-mob-svg {
+    vertical-align: -5px;
+    width: 60px;
+    height: 60px;
+    margin-right: 11px;
+  }
+  .hero-title h1 {
+    font-family: var(--main-font);
+    font-size: 74px;
+    line-height: 74px; /* 100% */
+    letter-spacing: -1.48px;
+    max-width: 593px; 
+    color: var(--text-color-dark);
+  }
+
+  .hero-title span {
+    color: var(--text-color-dark);
+    font-family: var(--span-font);
+    font-size: 74px;
+    font-style: italic;
+    line-height: 74px;
+    letter-spacing: -1.48px;
+  }
+  .hero-title p {
+    max-width: 528px;
+    color: var(--text-color-dark);
+    font-size: 18px;
+    line-height: 24px; /* 128.571% */
+    letter-spacing: -0.36px;
+    margin-bottom: 32px;
+  }
+  .hero-tag-list {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    height: 32px;
+    margin-top: 16px;
+    margin-left: 338px;
+  }
+  /* .hero-tag-item {
+    flex: 1 1 calc(33.33% - 32px);
+    max-width: calc(33.33% - 32px);
+  } */
+  .hero-tag-span {
+    color: var(--text-color-dark);
+    font-family: var(--main-font); /*Neue Montreal;*/
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.4px; /*??*/
+    padding: 4px 16px;
+    border: 1px solid #242424;
+    border-radius: 1000px;
+    display: block;
+    width: fit-content;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -97,5 +177,64 @@
   .hero-img .hero-img-mob {
     display: none;
   }
+  .hero {
+    padding: 96px 0px 70px;
+  }
+  .hero-web-yoga{
+    display: block;
+    border-radius: 30px;
+  }
+  .hero-title h1 svg.hero-mob-svg {
+    width: 60px;
+    height: 60px;
+  }
+  .hero-title h1 {
+    font-family: var(--main-font);
+    font-size: 74px;
+    line-height: 74px; /* 100% */
+    letter-spacing: -1.48px;
+    max-width: 593px; 
+    color: var(--text-color-dark);
+    order: 1;
+  }
+
+  .hero-title span {
+    color: var(--text-color-dark);
+    font-family: var(--span-font);
+    font-size: 74px;
+    font-style: italic;
+    line-height: 74px;
+    letter-spacing: -1.48px;
+  }
+  .hero-title p {
+    max-width: 528px;
+    color: var(--text-color-dark);
+    font-size: 18px;
+    line-height: 24px; /* 128.571% */
+    letter-spacing: -0.36px;
+    margin-bottom: 32px;
+  }
+  .hero-img{
+    order: 3;
+  }
+  .hero-tag-list{
+    order: 2;
+    margin-left: auto;
+    flex-wrap: wrap;
+    width: 182px;
+    height: 204px;
+    gap: 0 8px;
+    justify-content: right;
+  }
+  .child {
+    margin-top: auto;
+   
+  }
+  .hero-web-yoga{
+    margin-left: auto;
+    margin-bottom: 16px;
+  }
 }
+
+
 
