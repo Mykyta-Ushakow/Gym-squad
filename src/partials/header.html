@@ -1,12 +1,105 @@
 <header class="header">
-  <nav class="nav">
+  <a href="../index.html" class="logo-link">
+    <svg class="logo" width="132px" height="24px">
+      <use href="../img/sprite.svg#icon-logo"></use>
+    </svg>
+  </a>
+  <nav class="nav" data-menu>
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../index.html" class="nav-link" data-action="honepage">Home</a>
       </li>
       <li class="nav-item">
-        <a href="../favorite.html" class="nav-link">Favorites</a>
+        <a href="../favorite.html" class="nav-link" data-action="favoritespage"
+          >Favorites</a
+        >
       </li>
     </ul>
+    <div class="social">
+      <ul class="social-list">
+        <li class="social-item">
+          <a
+            href="https://www.facebook.com/goITclub/"
+            class="social-link"
+            target="_blank"
+          >
+            <svg class="social-icon" width="28px" height="28px">
+              <use href="../img/sprite.svg#icon-facebook"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="social-item">
+          <a
+            href="https://www.instagram.com/goitclub/"
+            class="social-link"
+            target="_blank"
+          >
+            <svg class="social-icon" width="28px" height="28px">
+              <use href="../img/sprite.svg#icon-instagram"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="social-item">
+          <a
+            href="https://www.youtube.com/c/GoIT"
+            class="social-link"
+            target="_blank"
+          >
+            <svg class="social-icon" width="28px" height="28px">
+              <use href="../img/sprite.svg#icon-youtube"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
   </nav>
+  <div class="social-burger">
+    <ul class="social-list">
+      <li class="social-item">
+        <a
+          href="https://www.facebook.com/goITclub/"
+          class="social-link"
+          target="_blank"
+        >
+          <svg class="social-icon" width="28px" height="28px">
+            <use href="../img/sprite.svg#icon-facebook"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="social-item">
+        <a
+          href="https://www.instagram.com/goitclub/"
+          class="social-link"
+          target="_blank"
+        >
+          <svg class="social-icon" width="28px" height="28px">
+            <use href="../img/sprite.svg#icon-instagram"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="social-item">
+        <a
+          href="https://www.youtube.com/c/GoIT"
+          class="social-link"
+          target="_blank"
+        >
+          <svg class="social-icon" width="28px" height="28px">
+            <use href="../img/sprite.svg#icon-youtube"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <button
+    type="button"
+    aria-expanded="false"
+    class="menu-button"
+    data-menu-button
+  >
+    <svg width="32px" height="32px" aria-label="button menu">
+      <use class="menu-close" href="../img/sprite.svg#icon-close"></use>
+      <use class="menu-open" href="../img/sprite.svg#icon-mobile-menu"></use>
+    </svg>
+  </button>
 </header>
