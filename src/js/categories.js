@@ -1,4 +1,4 @@
-import * as main from '../main';
+//import * as main from '../main';
 function setLimit() {
   const isLargeScreen = window.matchMedia('(min-width: 768px)').matches;
   return isLargeScreen ? 12 : 9;
@@ -14,9 +14,9 @@ async function searchImages(filter, page = 1) {
 
   if (activeButton) {
     activeButton.classList.add('active');
-  } else {
+  } /*else {
     console.error(`Button for filter "${filter}" not found.`);
-  }
+  }*/
 
   try {
     const apiUrl = `https://your-energy.b.goit.study/api/filters?filter=${filter}&page=${page}&limit=${limit}`;
@@ -27,7 +27,7 @@ async function searchImages(filter, page = 1) {
       const imageFilterGallery = document.getElementById('imageFilterGallery');
       imageFilterGallery.innerHTML = '';
 
-      console.log('Data from the server:', data);
+      //console.log('Data from the server:', data);
 
       if (data.results.length > 0) {
         data.results.forEach(imageData => {
