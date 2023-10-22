@@ -11,9 +11,34 @@
     border-radius: 20px;
     background-color: #242424;
     padding: 20px; 
+    position: relative;
+    display: flex;
 }
-.quote-icon {
-    position: absolute;
+
+.sidebar-quote div{
+    display: flex;
+}
+
+.quote-run-span{
+    left: 20px;
+    top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50px;
+    background: rgba(244,244,244,.2);
+}
+
+.quote-run-icon {
+    fill: #F4F4F4;
+}
+
+.quote-words{
+    margin-left: 18px;
+    display: flex;
+    flex-direction: column;
 }
 
 .quote-subtitle{
@@ -21,12 +46,30 @@
     font-size: 20px;
     font-weight: 500;
     line-height: 1;
+    margin-bottom: 6px;
+}
+
+.quote{
+    color: rgba(244, 244, 244, 0.60);
+    font-size: 14px;
+    line-height: 1.28; 
+    margin-bottom: 16px;
+}
+
+.author{
+    color: #F4F4F4;
+    font-size: 14px;
+    line-height: 1.28;
 }
 
 .quote-icon-mark {
-    /* position: absolute; */
-}
-.sidebar-picture {
+    position: absolute;
+    display: block;
+    right: 20px;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    fill: var(--text-color-light);
 }
 
 .quote-image{
@@ -37,8 +80,26 @@
     border-radius: 20px;
     background-color: #FFF;
     padding: 20px;
+    display: flex;
 }
+
+.quotes-span-container{
+}
+
+.quote-dumbbell-span{
+    top: 20px;
+    left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50px;
+    background: #242424;
+}
+
 .quote-text-icon {
+    fill: var(--text-color-light);
 }
 
 .quote-text-subtitle {
@@ -58,3 +119,9 @@
     font-size: 14px;
     line-height: 1.28;
 }
+
+.quote-info{
+    margin-left: 18px;
+}
+
+/* Media */
