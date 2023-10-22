@@ -83,9 +83,6 @@
     display: flex;
 }
 
-.quotes-span-container{
-}
-
 .quote-dumbbell-span{
     top: 20px;
     left: 20px;
@@ -107,17 +104,24 @@
     font-size: 20px;
     font-weight: 500;
     line-height: 1; 
+    margin-bottom: 4px;
 }
 .quote-daily {
     color: rgba(36, 36, 36, 0.60);
     font-size: 14px;
     line-height: 1.28;
+    margin-bottom: 16px;
 }
 
 .quote-text-info {
     color: #242424;
     font-size: 14px;
     line-height: 1.28;
+
+    -webkit-line-clamp: 5;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .quote-info{
@@ -125,3 +129,79 @@
 }
 
 /* Media */
+@media screen and (min-width: 768px){
+    .sidebar-list{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        column-gap: 16px;
+        row-gap: 32px;
+    }
+
+    .sidebar-quote{
+        max-width: 400px;
+        padding: 40px;
+    }
+    .quote-icon-mark{
+        right: 40px;
+        top: 40px;
+    }
+    .quote-subtitle{
+        color: #F4F4F4;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.33;
+    }
+
+    .quote{
+        margin-bottom: 18px;
+    }
+    
+    .author{
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .sidebar-picture{
+        max-width: 288px;
+        width: 100%;
+    }
+
+    .quote-image{
+        max-width: 288px;
+        height: 249px;
+    }
+
+    .sidebar-text{
+        max-width: 400px;
+        padding: 40px;
+    }
+    .quote-text-subtitle{
+        font-size: 24px;
+        line-height: 1.33; 
+        margin-bottom: 6px;
+    }
+}
+
+@media screen and (min-width: 1280px){
+    .sidebar-list {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+}
+    .quote-image{
+        max-width: 444px;
+        height: 242px;
+}
+
+    .sidebar-quote{
+        max-width: 444px;
+    }
+
+    .sidebar-text{
+        max-width: 444px;
+    }
+    .quote-text-info{
+        display: block;
+    }
+}
