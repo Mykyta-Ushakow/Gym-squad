@@ -1,0 +1,60 @@
+.sidebar {
+    background-color: #F4F4F4;;
+}
+
+.sidebar-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.sidebar-quote {
+    border-radius: 20px;
+    background-color: #242424;
+    padding: 20px; 
+}
+.quote-icon {
+    position: absolute;
+}
+
+.quote-subtitle{
+    color: #F4F4F4;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.quote-icon-mark {
+    /* position: absolute; */
+}
+.sidebar-picture {
+}
+
+.quote-image{
+    border-radius: 20px;
+}
+
+.sidebar-text {
+    border-radius: 20px;
+    background-color: #FFF;
+    padding: 20px;
+}
+.quote-text-icon {
+}
+
+.quote-text-subtitle {
+    color: #242424;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1; 
+}
+.quote-daily {
+    color: rgba(36, 36, 36, 0.60);
+    font-size: 14px;
+    line-height: 1.28;
+}
+
+.quote-text-info {
+    color: #242424;
+    font-size: 14px;
+    line-height: 1.28;
+}
