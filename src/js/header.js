@@ -2,18 +2,15 @@ import * as main from "../main";
 const menuBtn = document.querySelector('[data-menu-button]');
 const menuBtnCl = document.querySelector('[data-menu-close]');
 const menu = document.querySelector('.nav');
-//const menuBtnCl = document.querySelector('.menu-close');
-//const menuBtnOp = document.querySelector('.menu-open');
 const homePageLink = document.querySelector('[data-action="honepage"]');
 const favoritePageLink = document.querySelector('[data-action="favoritespage"]');
 const body = document.body;
 if(document.location.pathname ==="/Gym-squad/index.html"|| document.location.pathname ==="/Gym-squad"){
-homePageLink.classList.toggle('current')
+    homePageLink.classList.toggle('current');
 }
 if(document.location.pathname ==="/Gym-squad/favorite.html"){
-favoritePageLink.classList.toggle('current')
+    favoritePageLink.classList.toggle('current');
 }
-//console.dir(document);
 
 menuBtn.addEventListener('click', () => {
     menu.classList.toggle('active');
