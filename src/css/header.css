@@ -3,17 +3,22 @@ body {
     overflow: hidden;
   }
 }
-.header {
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  @media screen and (min-width: 768px) and (max-width: 1440px) {
+  @media screen and (min-width: 768px) and (max-width: 1280px) {
     padding: 24px 32px;
   }
-  @media screen and (min-width: 1441px) {
+  @media screen and (min-width: 1281px) {
     padding: 28px 32px;
   }
+}
+.logo-link{
+  min-height: 32px;
+    display: flex;
+    align-items: center;
 }
 .nav {
   display: flex;
@@ -54,13 +59,13 @@ body {
     flex-direction: column;
     align-items: center;
     }
-  @media screen and (min-width: 768px) and (max-width: 1440px) {
+  @media screen and (min-width: 768px) and (max-width: 1280px) {
     background-color: #242424;
     width: 233px;
     height: 52px;
     border-radius: 60px;
   }
-  @media screen and (min-width: 1441px) {
+  @media screen and (min-width: 1281px) {
     background-color: #242424;
     width: 233px;
     height: 52px;
@@ -82,6 +87,9 @@ body {
   letter-spacing: 0.02em;
   line-height: 1.5;
   padding: 6px 12px;
+  @media screen and (max-width: 767px) {
+    padding: 0;
+  }
   &:hover,
   &:focus {
     color: var(--text-color-dark);
@@ -139,10 +147,13 @@ body {
     display: block;
     margin: 0;
     padding: 0;
+    line-height: 0;
     border: none;
     z-index: 5;
     background-color: transparent;
     &.active {
+      position: absolute;
+      right: 20px;
       .menu-close {
         display: block;
       }
