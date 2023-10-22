@@ -1,17 +1,17 @@
 import * as main from '../main';
-import axios from '../main';
+
 document
-  .querySelector('subscriptionForm')
+  .querySelector('#subscriptionForm')
   .addEventListener('click', function (event) {
     event.preventDefault();
 
-    const emailInput = document.querySelector('email');
+    const emailInput = document.querySelector('#footer-email');
     const email = emailInput.value;
-
+    
     if (!emailInput.checkValidity()) {
       alert('Будь ласка, введіть коректну електронну пошту.');
     } else {
-      axios
+      main.axios
         .post('https://your-energy.b.goit.study/api/subscription', {
           email: email,
         })
