@@ -24,11 +24,13 @@
   border: 1px solid rgba(244, 244, 244, 0.1);
   border-radius: 10px;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.8;
 }
 .social-footer-icon:hover,
 .social-footer-icon:hover {
   fill: var(--stars-golden);
   border: var(--stars-golden);
+  opacity: 1;
 }
 
 .soc-logo {
@@ -76,6 +78,9 @@
   margin-bottom: 20px;
   opacity: 0.6;
   outline-color: var(--text-color-light);
+}
+input {
+  color: var(--text-color-light);
 }
 .footer-input-form::placeholder {
   color: rgba(244, 244, 244, 0.6);
@@ -170,7 +175,7 @@
     width: 350.4px;
     height: 48px;
   }
-  ..footer-input-form::placeholder {
+  .footer-input-form::placeholder {
     padding-left: 14px;
     color: rgba(244, 244, 244, 0.6);
     font-size: 16px;
