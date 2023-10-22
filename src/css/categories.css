@@ -123,8 +123,13 @@
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 12px;
+  transition: transform 0.3s;
 }
-
+.image-card:hover,
+.image-card:focus {
+  filter: brightness(150%);
+  transform: scale(1.05);
+}
 .image {
   border-radius: 12px;
   filter: brightness(50%);
@@ -177,9 +182,8 @@
   }
 }
 @media screen and (min-width: 1280px) {
-  .filter-gallery {
+  .gallery-container {
     max-width: 900px;
-    /*-------------------------*/
     margin: 0 32px 0 auto;
   }
   .image-card {
@@ -187,6 +191,51 @@
   }
   .image {
     max-width: 290px;
-    /*max-height: 242px;*/
+    height: 242px;
+  }
+}
+/*пагінація*/
+.pagination-container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.pagination-container button {
+  background-color: #fff;
+  color: var(--pagination-grey);
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0.04;
+  transition: color 0.3s, border-bottom 0.3s;
+
+  align-items: center;
+}
+
+.pagination-container button:hover,
+.pagination-container button:focus,
+.pagination-container button.active {
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  border: 1px solid var(--text-color-dark);
+  color: var(--text-color-dark);
+
+  transition: opacity 0.3s;
+}
+@media screen and (min-width: 768px) {
+  .pagination-container button {
+    font-size: 24px;
+    line-height: 1.33;
+  }
+  .pagination-container button:hover,
+  .pagination-container button:focus,
+  .pagination-container button.active {
+    width: 33px;
+    height: 33px;
   }
 }

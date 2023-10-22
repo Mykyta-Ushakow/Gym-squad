@@ -59,6 +59,25 @@ async function searchImages(filter, page = 1) {
           'Nothing was found for this query. Please try again.';
         imageFilterGallery.appendChild(noResultsMessage);
       }
+      /* пагінація*/
+      const paginationContainer = document.getElementById('pagination');
+      paginationContainer.innerHTML = '';
+
+      if (data.totalPages > 1) {
+        for (let i = 1; i <= data.totalPages; i++) {
+          const pageButton = document.createElement('button');
+          pageButton.textContent = i;
+          pageButton.addEventListener('click', () => {
+            searchImages(filter, i);
+          });
+          if (i === page) {
+            pageButton.classList.add('active');
+          }
+
+          paginationContainer.appendChild(pageButton);
+        }
+      }
+      /*------------*/
     } else {
       console.error('Error fetching images from the API');
     }
