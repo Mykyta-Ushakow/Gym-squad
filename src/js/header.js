@@ -11,7 +11,6 @@ if(document.location.pathname ==="/Gym-squad/index.html"|| document.location.pat
 if(document.location.pathname ==="/Gym-squad/favorite.html"){
     favoritePageLink.classList.toggle('current');
 }
-//console.dir(document);
 
 menuBtn.addEventListener('click', () => {
     menu.classList.toggle('active');
