@@ -65,6 +65,91 @@
     }
 }
 
+.fav-quotes {
+    border-radius: 20px;
+    background-color: var(--text-color-dark);
+    padding: 20px;
+    position: relative;
+    display: flex;
+
+    @media screen and (min-width: 768px) {
+        padding: 40px;
+        width: 704px;
+    }
+}
+
+.fav-quote-run-span {
+    left: 20px;
+    top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50px;
+    background: rgba(244, 244, 244, .2);
+}
+
+.fav-quote-run-icon {
+    fill: var(--text-color-light);
+}
+
+.fav-quote-subtitle {
+    color: var(--text-color-light);
+    font-size: 20px;
+    line-height: 1;
+    font-weight: var(--exercises-font);
+    margin-bottom: 6px;
+
+    @media screen and (min-width: 768px) {
+            font-size: 24px;
+            line-height: 1.33;
+        }
+}
+
+.fav-quote {
+    color: rgba(244, 244, 244, 0.60);
+    font-size: 14px;
+    font-weight: var(--main-font);
+    line-height: 1.28;
+}
+
+.fav-quotes-author {
+    display: none;
+
+    @media screen and (min-width: 768px) {
+        display: unset;
+        margin-top: 18px;
+        color: var(--text-color-light);
+        font-size: 16px;
+        line-height: 1.5;
+        font-weight: var(--main-font);
+    }
+}
+
+.fav-quote-icon-mark {
+    position: absolute;
+    display: block;
+    right: 20px;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    fill: var(--text-color-light);
+
+    @media screen and (min-width: 768px) {
+            right: 40px;
+                top: 40px;
+                width: 24px;
+                height: 24px;
+        }
+}
+
+.fav-quote-words {
+    margin-left: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
 .fav-card {
     padding: 20px;
     background-color: #ffffff;
@@ -118,7 +203,6 @@
 
     @media screen and (min-width: 1280px) {
         margin: 102px auto 0;
-        padding-bottom: 100px;
     }
 }
 
