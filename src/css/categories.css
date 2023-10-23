@@ -24,7 +24,7 @@
 .filter {
   position: relative;
   border: none;
-  background-color: #fff;
+  background-color: var(--text-color-light);
   color: rgba(36, 36, 36, 0.6);
   font-size: 14px;
   line-height: 0.7;
@@ -82,7 +82,7 @@
 
 @media screen and (min-width: 1280px) {
   .categories-container {
-    max-width: 1280px;
+    max-width: 1440px;
   }
   .categories_menu {
     display: flex;
@@ -111,7 +111,7 @@
   flex-wrap: wrap;
   gap: 20px;
 
-  justify-content: center;
+  /*justify-content: center;*/
   align-items: center;
   padding: 0, 20px;
 }
@@ -170,9 +170,9 @@
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .image {
-    width: 225px;
-    height: 225px;
+  .image-card {
+    max-width: 225px;
+    max-height: 225px;
   }
   .filterText {
     font-size: 24px;
@@ -182,16 +182,24 @@
   }
 }
 @media screen and (min-width: 1280px) {
+  .home {
+    display: flex;
+    flex-direction: row-reverse;
+    /*gap: 32px;*/
+    justify-content: space-between;
+    padding: 0 32px;
+  }
   .gallery-container {
     max-width: 900px;
-    margin: 0 32px 0 auto;
   }
+
   .image-card {
-    max-height: 242px;
+    /*max-height: 242px;*/
+    max-width: 290px;
   }
   .image {
-    max-width: 290px;
-    height: 242px;
+    /* max-width: 290px;*/
+    max-height: 242px;
   }
 }
 /*пагінація*/
@@ -201,10 +209,11 @@
   gap: 8px;
   justify-content: center;
   padding-top: 20px;
+  padding-bottom: 80px;
 }
 
 .pagination-container button {
-  background-color: #fff;
+  background-color: var(--text-color-light);
   color: var(--pagination-grey);
   border: none;
   cursor: pointer;
@@ -237,5 +246,13 @@
   .pagination-container button.active {
     width: 33px;
     height: 33px;
+  }
+  .pagination-container {
+    padding-bottom: 64px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .pagination-container {
+    padding-bottom: 0;
   }
 }

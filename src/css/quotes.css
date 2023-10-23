@@ -1,207 +1,221 @@
 .sidebar {
-    background-color: #F4F4F4;;
+  background-color: #f4f4f4;
 }
 
 .sidebar-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+@media screen and (max-width: 767px) {
+  .sidebar {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 .sidebar-quote {
-    border-radius: 20px;
-    background-color: #242424;
-    padding: 20px; 
-    position: relative;
-    display: flex;
+  border-radius: 20px;
+  background-color: #242424;
+  padding: 20px;
+  position: relative;
+  display: flex;
 }
 
-.sidebar-quote div{
-    display: flex;
+.sidebar-quote div {
+  display: flex;
 }
 
-.quote-run-span{
-    left: 20px;
-    top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50px;
-    background: rgba(244,244,244,.2);
+.quote-run-span {
+  left: 20px;
+  top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50px;
+  background: rgba(244, 244, 244, 0.2);
 }
 
 .quote-run-icon {
-    fill: #F4F4F4;
+  fill: #f4f4f4;
 }
 
-.quote-words{
-    margin-left: 18px;
-    display: flex;
-    flex-direction: column;
+.quote-words {
+  margin-left: 18px;
+  display: flex;
+  flex-direction: column;
 }
 
-.quote-subtitle{
-    color: #F4F4F4;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 1;
-    margin-bottom: 6px;
+.quote-subtitle {
+  color: #f4f4f4;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 6px;
 }
 
-.quote{
-    color: rgba(244, 244, 244, 0.60);
-    font-size: 14px;
-    line-height: 1.28; 
-    margin-bottom: 16px;
+.quote {
+  color: rgba(244, 244, 244, 0.6);
+  font-size: 14px;
+  line-height: 1.28;
+  margin-bottom: 16px;
 }
 
-.author{
-    color: #F4F4F4;
-    font-size: 14px;
-    line-height: 1.28;
+.author {
+  color: #f4f4f4;
+  font-size: 14px;
+  line-height: 1.28;
 }
 
 .quote-icon-mark {
-    position: absolute;
-    display: block;
-    right: 20px;
-    top: 20px;
-    width: 20px;
-    height: 20px;
-    fill: var(--text-color-light);
+  position: absolute;
+  display: block;
+  right: 20px;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  fill: var(--text-color-light);
 }
 
-.quote-image{
-    border-radius: 20px;
+.quote-image {
+  border-radius: 20px;
 }
 
 .sidebar-text {
-    border-radius: 20px;
-    background-color: #FFF;
-    padding: 20px;
-    display: flex;
+  border-radius: 20px;
+  background-color: #fff;
+  padding: 20px;
+  display: flex;
 }
 
-.quote-dumbbell-span{
-    top: 20px;
-    left: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50px;
-    background: #242424;
+.quote-dumbbell-span {
+  top: 20px;
+  left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50px;
+  background: #242424;
 }
 
 .quote-text-icon {
-    fill: var(--text-color-light);
+  fill: var(--text-color-light);
 }
 
 .quote-text-subtitle {
-    color: #242424;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 1; 
-    margin-bottom: 4px;
+  color: #242424;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 4px;
 }
 .quote-daily {
-    color: rgba(36, 36, 36, 0.60);
-    font-size: 14px;
-    line-height: 1.28;
-    margin-bottom: 16px;
+  color: rgba(36, 36, 36, 0.6);
+  font-size: 14px;
+  line-height: 1.28;
+  margin-bottom: 16px;
 }
 
 .quote-text-info {
-    color: #242424;
-    font-size: 14px;
-    line-height: 1.28;
+  color: #242424;
+  font-size: 14px;
+  line-height: 1.28;
 
-    -webkit-line-clamp: 5;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  -webkit-line-clamp: 5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.quote-info{
-    margin-left: 18px;
+.quote-info {
+  margin-left: 18px;
 }
 
 /* Media */
-@media screen and (min-width: 768px){
-    .sidebar-list{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        column-gap: 16px;
-        row-gap: 32px;
-    }
+@media screen and (min-width: 768px) {
+  .sidebar-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    column-gap: 16px;
+    row-gap: 32px;
+  }
 
-    .sidebar-quote{
-        max-width: 400px;
-        padding: 40px;
-    }
-    .quote-icon-mark{
-        right: 40px;
-        top: 40px;
-    }
-    .quote-subtitle{
-        color: #F4F4F4;
-        font-size: 24px;
-        font-weight: 500;
-        line-height: 1.33;
-    }
+  .sidebar-quote {
+    max-width: 400px;
+    padding: 40px;
+  }
+  .quote-icon-mark {
+    right: 40px;
+    top: 40px;
+  }
+  .quote-subtitle {
+    color: #f4f4f4;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.33;
+  }
 
-    .quote{
-        margin-bottom: 18px;
-    }
-    
-    .author{
-        font-size: 16px;
-        line-height: 1.5;
-    }
+  .quote {
+    margin-bottom: 18px;
+  }
 
-    .sidebar-picture{
-        max-width: 288px;
-        width: 100%;
-    }
+  .author {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 
-    .quote-image{
-        max-width: 288px;
-        height: 249px;
-    }
+  .sidebar-picture {
+    max-width: 288px;
+    width: 100%;
+  }
 
-    .sidebar-text{
-        max-width: 400px;
-        padding: 40px;
-    }
-    .quote-text-subtitle{
-        font-size: 24px;
-        line-height: 1.33; 
-        margin-bottom: 6px;
-    }
+  .quote-image {
+    max-width: 288px;
+    height: 249px;
+  }
+
+  .sidebar-text {
+    max-width: 400px;
+    padding: 40px;
+  }
+  .quote-text-subtitle {
+    font-size: 24px;
+    line-height: 1.33;
+    margin-bottom: 6px;
+  }
 }
 
-@media screen and (min-width: 1280px){
-    .sidebar-list {
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-}
-    .quote-image{
-        max-width: 444px;
-        height: 242px;
-}
+@media screen and (min-width: 1280px) {
+  .sidebar {
+    margin-right: 32px;
+  }
+  .sidebar-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .sidebar-picture {
+    max-width: 444px;
+  }
+  .quote-image {
+    max-width: 444px;
+    width: 100%;
+    height: 242px;
+    object-fit: cover;
+  }
 
-    .sidebar-quote{
-        max-width: 444px;
-    }
+  .sidebar-quote {
+    max-width: 444px;
+  }
 
-    .sidebar-text{
-        max-width: 444px;
-    }
-    .quote-text-info{
-        display: block;
-    }
+  .sidebar-text {
+    max-width: 444px;
+  }
+  .quote-text-info {
+    display: block;
+  }
 }
