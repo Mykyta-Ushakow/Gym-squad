@@ -5,7 +5,9 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css" integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+    integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>My Favorites</title>
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
@@ -13,11 +15,61 @@
 <body>
   <load="partials/header.html" />
 
-  <section>
-    <h1>Welcome to Favorites</h1>
+  <section class="favorites container">
+    <h2 class="fav-title">Favorites</h2>
+    <div class="wrapper">
+      <aside class="fav-sidebar">
+        <div class="fav-quotes">
+          <div class="fav-quote-icons">
+            <span class="fav-quote-run-span">
+              <svg class="fav-quote-run-icon" width="18" height="20">
+                <use href="./img/sprite.svg#icon-running-figure"></use>
+              </svg>
+            </span>
+          </div>
+          <div class="fav-quote-words">
+            <h3 class="fav-quote-subtitle">Quote of the day</h3>
+            <p class="fav-quote">
+              <!-- A lot of times I find that people who are blessed with the most talent
+              don't ever develop that attitude, and the ones who aren't blessed in
+              that way are the most competitive and have the biggest heart. -->
+            </p>
+            <h4 class="fav-quotes-author">
+              <!-- Tom Brady -->
+            </h4>
+          </div>
+          <span>
+            <svg class="fav-quote-icon-mark" width="18" height="20">
+              <use href="./img/sprite.svg#icon-commas"></use>
+            </svg>
+          </span>
+        </div>
+        <div class="fav-sidebar-block">
+          <div class="fav-card">            
+              <svg class="fav-card-icon" width="20" height="20">
+                <use href="./img/sprite.svg#icon-dumbbell"></use>
+              </svg>
+              <h3 class="fav-card-title">110 min</h3>
+              <p class="fav-card-text">Daily norm of sports</p>
+          </div>
+          <picture>
+            <source srcset="./img/fav-pc.jpg 1x, ./img/fav-pc-2x.png 2x" media="(min-width: 1280px)" />
+            <source srcset="./img/fav-tablet.png 1x, ./img/fav-tablet-2x.png 2x" media="(min-width: 768px)" />
+            <source srcset="./img/fav-mobile.jpg 1x, ./img/fav-mobile-2x.jpg 2x" media="(max-width: 767px)" />
+            <img src="./img/fav-pc.jpg" alt="Women Sportswear Working Out Outdoors" class="fav-img" loading="lazy">
+          </picture>
+        </div>
+      </aside>
+      <div class="fav-exercises">
+        <load="partials/exercises.html" />
+      </div>      
+        <p class="fav-text">It appears that you haven't added any exercises to your favorites yet. To get started, you can
+          add exercises that you
+          like to your favorites for easier access in the future.</p>      
+    </div>
   </section>
 
-  <load="partials/footer.html" />
+
 
   <script type="module" src="/favorite.js"></script>
 </body>
