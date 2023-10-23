@@ -1,1 +1,139 @@
 @import url('./styles.css');
+
+.favorites {
+    padding: 64px 20px 73px;
+
+    @media screen and (min-width: 768px) {
+        padding: 76px 32px 187px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        padding: 90px 32px 51px;
+    }
+}
+
+.fav-title {
+    color: var(--text-color-dark);
+    font-size: 28px;
+    line-height: 1.36;
+    letter-spacing: 0.02;
+    font-weight: var(--main-font);
+    margin-bottom: 20px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 32px;
+        font-size: 44px;
+        line-height: 1.09;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin-bottom: 44px;
+    }
+}
+
+.fav-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 494px;
+    }
+}
+
+.wrapper {
+    @media screen and (min-width: 1280px) {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.fav-sidebar-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        gap: 16px;
+    }
+}
+
+.fav-card {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 20px;
+
+    @media screen and (min-width: 768px) {
+        padding: 25px;
+        width: 344px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 239px;
+        height: 141px;
+    }
+}
+
+.fav-card-title {
+    font-size: 20px;
+    font-weight: var(--exercises-font);
+    margin: 15px 0 6px;
+    line-height: 1;
+
+    @media screen and (min-width: 768px) {
+        font-size: 24px;
+        line-height: 1.33;
+    }
+}
+
+.fav-card-text {
+    font-size: 14px;
+    font-weight: var(--main-font);
+    color: rgba(36, 36, 36, 0.60);
+    line-height: 1.28;
+}
+
+.fav-text {
+    display: flex;
+    max-width: 318px;
+    font-size: 14px;
+    font-weight: var(--main-font);
+    line-height: 1.28;
+    margin: 40px auto 0;
+    text-align: center;
+
+    @media screen and (min-width: 768px) {
+        max-width: 554px;
+        font-size: 18px;
+        line-height: 1.33;
+        margin: 132px auto 0;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin: 102px auto 0;
+        padding-bottom: 100px;
+    }
+}
+
+.fav-img {
+    border-radius: 20px;
+}
+
+.fav-exercises {
+    margin-top: 40px;
+
+    @media screen and (min-width: 768px) {
+        margin-top: 64px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin-top: unset;
+    }
+}
