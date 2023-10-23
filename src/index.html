@@ -1,40 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>YourEnergy</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css" integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <title>YourEnergy</title>
-  <link rel="stylesheet" href="./css/styles.css" />  
-</head>
+  <body>
+    <load ="partials/header.html" />
 
-<body>
+    <main>
+      <load ="partials/hero.html" />
 
-  <load="partials/header.html" />
+      <section>
+        <load ="partials/quotes.html" />
+        <load ="partials/categories.html" />
+        <load ="partials/exercises.html" />
+      </section>
+    </main>
 
-  <main>
+    <load ="partials/footer.html" />
 
-    <load="partials/hero.html" />
+    <load ="partials/modal.html" />
 
-    <section>
-      <load="partials/quotes.html"/>
-      <load="partials/categories.html"/>
-      <load="partials/exercises.html" />
-    </section>
+    <!-- Loads the specified .html file -->
 
-  </main>
-
-
-  <load="partials/footer.html"/>
-
-  <load="partials/modal.html"/>
-
-
-  <!-- Loads the specified .html file -->
-
-  <script type="module" src="/main.js"></script>
-</body>
-
+    <script type="module" src="/main.js"></script>
+  </body>
 </html>
