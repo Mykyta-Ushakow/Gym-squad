@@ -102,9 +102,9 @@
     margin-bottom: 6px;
 
     @media screen and (min-width: 768px) {
-            font-size: 24px;
-            line-height: 1.33;
-        }
+        font-size: 24px;
+        line-height: 1.33;
+    }
 }
 
 .fav-quote {
@@ -137,11 +137,11 @@
     fill: var(--text-color-light);
 
     @media screen and (min-width: 768px) {
-            right: 40px;
-                top: 40px;
-                width: 24px;
-                height: 24px;
-        }
+        right: 40px;
+        top: 40px;
+        width: 24px;
+        height: 24px;
+    }
 }
 
 .fav-quote-words {
