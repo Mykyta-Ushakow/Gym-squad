@@ -6,6 +6,9 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
+
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
 }
 
 .exercises-item {
@@ -15,8 +18,8 @@
     background: var(--exercise-card-white);
     border-radius: 15px;
     padding: 16px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
     
 }
 .exercises-header{
@@ -109,7 +112,7 @@
 
     overflow: hidden;
     text-overflow: ellipsis;
-    text-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .exercises-name-span{    
@@ -139,24 +142,26 @@
 
     overflow: hidden;
     text-overflow: ellipsis;
-    text-wrap: nowrap;
+    white-space: nowrap;
 }
 
-.exercises-descr-container{
+/* .exercises-descr-container{
     display: flex;
     overflow: hidden;
     text-overflow: ellipsis;
-}
+    max-width: 100%;
+} */
 
 .exercises-descr-list{
-    display: inline-flex;
+    display: flex;
     justify-content: start;
     align-items: center;
     gap: 10px;
 
     flex-wrap: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
     max-width: 100%;
 }
 
@@ -176,13 +181,32 @@
     gap: 2px;
     flex-wrap: nowrap;
     
-    /* overflow: hidden; */
-    text-wrap: nowrap;
-    text-overflow: ellipsis;
+    /*
+    overflow: hidden; */
+    /* text-overflow: ellipsis; */
+
+    
+    white-space: nowrap;
 }
 
+.exercises-descr-item:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* .exercises-descr-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+} */
+
+.exercises-descr-span::first-letter {
+    text-transform: capitalize;
+}
 .exercises-descr-span{
     color: rgba(36, 36, 36, 0.40);
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
 }
 
 

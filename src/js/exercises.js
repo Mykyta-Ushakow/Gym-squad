@@ -102,22 +102,26 @@ function createMarkup({ rating, name, burnedCalories, bodyPart, target, _id }) {
 					${name}
 				</p>
 			</div>
-			<div class="exercises-descr-container">
 				<ul class="exercises-descr-list">
 					<li class="exercises-descr-item">
-						<span class="exercises-descr-span">Burned calories:</span>
+						<span class="exercises-descr-span">
+						Burned calories:
+						</span>
 						${burnedCalories} / 3 min
 					</li>
 					<li class="exercises-descr-item">
-						<span class="exercises-descr-span">Body part:</span>
+						<span class="exercises-descr-span">
+						Body part:
+						</span>
 						${bodyPart}
 					</li>
 					<li class="exercises-descr-item">
-						<span class="exercises-descr-span">Target:</span>
-						${target}
+						<span class="exercises-descr-span">
+						Target:
+						</span>
+						${target}	
 					</li>
 				</ul>
-			</div>
 		</li>`;
 }
 export function createExercisesPaginationBtnsMarkup(
