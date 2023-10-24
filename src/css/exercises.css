@@ -166,7 +166,7 @@
 }
 
 .exercises-descr-item{
-    color: var(--text-color-dark);
+    color: rgba(36, 36, 36, 0.40);
 
     font-feature-settings: 'clig' off, 'liga' off;
     font-family: var(--main-font);
@@ -175,16 +175,11 @@
     font-weight: 400;
     line-height: 1.5;
 
-    display: flex;
+    /* display: flex; */
     justify-content: flex-start;
     align-items: center;
     gap: 2px;
     flex-wrap: nowrap;
-    
-    /*
-    overflow: hidden; */
-    /* text-overflow: ellipsis; */
-
     
     white-space: nowrap;
 }
@@ -195,18 +190,12 @@
     white-space: nowrap;
 }
 
-/* .exercises-descr-text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-} */
-
 .exercises-descr-span::first-letter {
     text-transform: capitalize;
 }
 .exercises-descr-span{
-    color: rgba(36, 36, 36, 0.40);
-    /* overflow: hidden; */
-    /* text-overflow: ellipsis; */
+    display: inline-block;
+    color: var(--text-color-dark);
 }
 
 

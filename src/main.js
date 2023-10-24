@@ -8,7 +8,6 @@ export * as categoriesMd from "/js/categories.js";
 export * as exercisesMd from "/js/exercises.js";
 export * as footerMd from "/js/footer.js";
 export * as modalMd from "/js/modal.js";
-export * as favoriteMd from "/favorite.js";
 
 import "/js/header";
 import "/js/hero";
@@ -17,4 +16,3 @@ import "/js/categories";
 import "/js/exercises";
 import "/js/footer";
 import "/js/modal";
-import "/favorite";
