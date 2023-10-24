@@ -1,1 +1,1 @@
-import * as main from "../main";
+// import * as main from "../main";

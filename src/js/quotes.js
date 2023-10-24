@@ -1,4 +1,4 @@
-import * as main from '../main';
+// import * as main from '../main';
 
 const quoteData = localStorage.getItem('quoteData');
 let quote = '';

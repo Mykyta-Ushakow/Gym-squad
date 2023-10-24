@@ -45,3 +45,4 @@ function displayQuote(quote, author) {
   quoteElement.textContent = quote;
   authorElement.textContent = author;
 }
+import "/js/header";

@@ -1,4 +1,5 @@
-import * as main from "../main";
+// import * as main from "../main";
+
 const menuBtn = document.querySelector('[data-menu-open]');
 const menuBtnCl = document.querySelector('[data-menu-close]');
 const menu = document.querySelector('.nav');
