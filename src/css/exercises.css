@@ -1,0 +1,188 @@
+.exercises-list {
+    list-style: none;
+    display: flex;
+    width: 335px;
+    /* height: 141px; */
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.exercises-item {
+    width: 335px;
+    height: 141px;
+    flex-shrink: 0;
+    background: var(--exercise-card-white);
+    border-radius: 15px;
+    padding: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
+.exercises-header{
+    display: flex;
+    align-items: space-between;
+    justify-content: space-between;
+}
+.exercises-meta-container{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.exercises-meta{
+    border-radius: 15px;
+    border: 1px solid var(--text-color-dark);
+
+    display: inline-flex;
+    padding: 5px 7.5px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--text-color-dark);
+
+    font-family: var(--exercises-font);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.raiting-wrap {
+
+    width: 40px;
+    height: 18px; 
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+.exercises-raiting{
+    color: var(--text-color-dark);
+
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: var(--main-font);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+
+}
+.exercises-svg{
+    fill: var(--stars-golden);
+
+}
+.exercises-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    background-color: inherit;
+
+    color: var(--text-color-dark);
+
+    font-family: var(--main-font);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 128.571% */
+
+
+}
+.exercises-btn-svg{
+    fill: var(--text-color-dark);
+}
+
+.exercises-name-container{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+
+    margin-top: 27px;
+    margin-bottom: 16px;
+
+    max-width: 100%;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
+
+.exercises-name-span{    
+    width: 24px;
+    height: 24px;
+}
+
+.exercises-name-svg{
+    width: 24px;
+    height: 24px;
+}
+
+.exercises-name:first-letter{
+    text-transform: capitalize;
+
+}
+
+.exercises-name{
+    color: var(--text-color-dark);
+
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: var(--main-font);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
+
+.exercises-descr-container{
+    display: flex;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.exercises-descr-list{
+    display: inline-flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+
+    flex-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.exercises-descr-item{
+    color: var(--text-color-dark);
+
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: var(--main-font);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: nowrap;
+    
+    /* overflow: hidden; */
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+}
+
+.exercises-descr-span{
+    color: rgba(36, 36, 36, 0.40);
+}
+
+

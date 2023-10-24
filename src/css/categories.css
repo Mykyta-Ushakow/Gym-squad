@@ -150,16 +150,26 @@
   text-transform: capitalize;
 }
 .filterText {
+  /* font-size: 20px;
+  line-height: 1;
+  text-transform: capitalize;
+  padding-bottom: 5px; */
+
+  filter: brightness(60%);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.nameText {
+  /* filter: brightness(60%);
+  font-size: 12px;
+  line-height: 1.5; */
+
   font-size: 20px;
   line-height: 1;
   text-transform: capitalize;
   padding-bottom: 5px;
 }
-.nameText {
-  filter: brightness(60%);
-  font-size: 12px;
-  line-height: 1.5;
-}
+
 @media screen and (min-width: 768px) {
   .filter-gallery {
     flex-direction: row;
@@ -175,10 +185,12 @@
     max-height: 225px;
   }
   .filterText {
-    font-size: 24px;
+    /* font-size: 24px; */
+    font-size: 12px;
   }
   .nameText {
-    font-size: 12px;
+    /* font-size: 12px; */
+    font-size: 24px;
   }
 }
 @media screen and (min-width: 1280px) {
