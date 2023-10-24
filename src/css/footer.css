@@ -104,6 +104,11 @@ input {
   font-style: normal;
   line-height: 1.2;
 }
+.footer-btn:focus,
+.footer-btn:hover {
+  background: var(--copywright-text);
+}
+
 .footer-text-2 {
   color: var(--copywright-text);
   padding: 0;
@@ -112,6 +117,7 @@ input {
   font-style: normal;
   font-weight: 400;
   line-height: 1.28; /* 128.571% */
+  letter-spacing: -0.28px;
 }
 
 .footer-link {
@@ -127,6 +133,10 @@ input {
   max-width: 335px;
   margin-top: 100px;
   padding-bottom: 20px;
+}
+.footer-privacy {
+  display: flex;
+  gap: 8px;
 }
 .text-container-2 {
   width: 100%;
@@ -161,6 +171,10 @@ input {
     padding-top: 64px;
     margin-right: 100px;
   }
+  .social-footer-icon {
+    width: 44px;
+    height: 44px;
+  }
   .footer-section-1 {
     width: 100%;
     display: flex;
@@ -172,7 +186,7 @@ input {
     max-width: 350px;
   }
   .footer-input-form {
-    width: 350.4px;
+    width: 350px;
     height: 48px;
   }
   .footer-input-form::placeholder {
@@ -204,7 +218,7 @@ input {
     text-align: center;
   }
   .text-container-2 {
-    width: auto;
+    width: 448px;
     margin-top: 0;
     margin-left: 78px;
   }
@@ -213,9 +227,12 @@ input {
   }
 }
 
-@media screen and (min-width: 1440px) {
-  .footer-container {
+@media screen and (min-width: 1280px) {
+  .container {
     max-width: 1440px;
+  }
+  .footer-container {
+    width: 100%;
     padding-left: 32px;
     padding-right: 32px;
     margin-top: 132px;
@@ -224,7 +241,7 @@ input {
     margin-right: 158px;
   }
   .footer-title {
-    min-width: 554px;
+    width: 100%;
     font-size: 56px;
     font-style: normal;
     font-weight: 400;
@@ -235,20 +252,31 @@ input {
     font-size: 16px;
     line-height: 1.6;
   }
-  .footer-section-2 {
+  .footer-section-1 {
+    width: 100%;
     display: flex;
+    justify-content: space-between;
+  }
+  .footer-section-2 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
   .text-container-1 {
+    width: 100%;
     margin-top: 54px;
+    justify-content: space-between;
+    padding-right: 305px;
   }
-  .footer-form-container {
-    /* margin-top: 64px; */
-    margin-left: 158px;
+  .footer-credo {
+    min-width: 178px;
+    margin-right: 136px;
   }
+
   .text-container-2 {
-    margin-left: 136px;
-  }
-  .footer-text-3 {
-    margin-left: 830px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 0;
   }
 }
