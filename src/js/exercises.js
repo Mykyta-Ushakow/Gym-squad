@@ -1,4 +1,4 @@
-import * as main from "../main";
+// import * as main from "../main";
 
 export const API_PROPS = Object.freeze({
     BASE_URL: 'https://your-energy.b.goit.study/api',
@@ -13,30 +13,50 @@ import axios from 'axios';
 
 const { BASE_URL, EXERCISE_ENDPOINT } = API_PROPS;
 
-let limit = 8;
+// let limit = 8;
 
-export async function fetchExercises(category, bodyPart, page = 1) {
+function setLimit() {
+	const isLargeScreen = window.matchMedia('(min-width: 768px)').matches;
+	return isLargeScreen ? 10 : 8;
+  }
+
+export function onClick(event) {
+	const card = event.currentTarget;
+
+	console.log(card.dataset.name, card.dataset.category);
+
+	fetchExercises(card.dataset.category, card.dataset.name)
+	.then(resp => {
+		console.log(resp);
+		const list = document.querySelector('.filter-gallery');
+		list.innerHTML = createExercisesMarkup(resp.results);
+	});
+}
+
+export async function fetchExercises(category, filter, page = 1) {
   const params = new URLSearchParams({
-    [category]: bodyPart,
+    [category]: filter,
 
-    limit,
+    limit: setLimit(),
     page,
   });
 
   const categoriesUrl = `${BASE_URL}${EXERCISE_ENDPOINT}?${params}`;
+
   const response = await axios.get(categoriesUrl);
 
+//   return response;
   return response.data;
 }
 
 export async function fetchAllExercises(
   category,
-  bodyPart,
+  filter,
   perPage,
   totalPages
 ) {
   const params = new URLSearchParams({
-    [category]: bodyPart,
+    [category]: filter,
     limit: perPage * totalPages,
   });
 
@@ -47,8 +67,8 @@ export async function fetchAllExercises(
 }
 
 export function createExercisesMarkup(data) {
-  return `<ul class="exercises-list">${data.map(createMarkup).join('')}</ul>
-	<ul class="exer-pagination-list"></ul>`;
+  return `<ul class="exercises-list">${data.map(createMarkup).join('')}</ul>`
+	// <ul class="exer-pagination-list"></ul>`;
 }
 
 function createMarkup({ rating, name, burnedCalories, bodyPart, target, _id }) {
@@ -56,24 +76,26 @@ function createMarkup({ rating, name, burnedCalories, bodyPart, target, _id }) {
 			<div class="exercises-header">
 				<div class="exercises-meta-container">
 					<p class="exercises-meta">WORKOUT</p>
-					<p class="exercises-rating">
+					<div class="raiting-wrap">
+						<p class="exercises-rating">
 						${rating.toFixed(1)}
+						</p>
 						<svg width="18" height="18" class="exercises-svg">
 							<use href="../img/sprite.svg#icon-star"></use>
 						</svg>
-					</p>
+					</div>
 				</div>
 				<button type="button" class="exercises-btn" data-modal-exercise="open">
 					Start
 					<svg width="16" height="16" class="exercises-btn-svg">
-						<use href="../img/sprite.svg#icon-arrow-up"></use>
+						<use href="../img/sprite.svg#icon-arrow-right"></use>
 					</svg>
 				</button>
 			</div>
 			<div class="exercises-name-container">
 				<span class="exercises-name-span">
 				<svg width="20" height="20" class="exercises-name-svg">
-					<use href="../img/sprite.svg#icon-running-figure"></use>
+					<use href="../img/sprite.svg#icon-running-circled"></use>
 				</svg>
 				</span>
 				<p class="exercises-name">

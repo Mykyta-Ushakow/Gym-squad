@@ -1,4 +1,6 @@
-import * as main from '../main';
+// import * as main from '../main';
+import { fetchAllExercises, fetchExercises, createExercisesMarkup, onClick } from './exercises';
+
 function setLimit() {
   const isLargeScreen = window.matchMedia('(min-width: 768px)').matches;
   return isLargeScreen ? 12 : 9;
@@ -33,26 +35,30 @@ async function searchImages(filter, page = 1) {
         data.results.forEach(imageData => {
           const imageCard = document.createElement('div');
           imageCard.classList.add('image-card');
+          imageCard.addEventListener('click', onClick);
 
           const image = document.createElement('img');
           image.src = imageData.imgURL;
           image.alt = imageData.name;
           image.classList.add('image');
 
-          const filterText = document.createElement('p');
-          filterText.textContent = `${imageData.filter}`;
-          filterText.classList.add('filterText');
-
           const nameText = document.createElement('p');
           nameText.textContent = `${imageData.name}`;
           nameText.classList.add('nameText');
+          imageCard.dataset.name = imageData.name;
+
+          const filterText = document.createElement('p');
+          filterText.textContent = `${imageData.filter}`;
+          filterText.classList.add('filterText');
+          imageCard.dataset.category = dataSlicer(imageData.filter);
+
 
           imageCard.appendChild(image);
-          imageCard.appendChild(filterText);
           imageCard.appendChild(nameText);
+          imageCard.appendChild(filterText);
 
           imageFilterGallery.appendChild(imageCard);
-        });
+        })        
       } else {
         const noResultsMessage = document.createElement('p');
         noResultsMessage.textContent =
@@ -105,3 +111,9 @@ equipmentButton.addEventListener('click', function () {
 window.addEventListener('load', () => {
   searchImages('Body parts');
 });
+
+function dataSlicer(dataStr) {
+  return dataStr === 'Body parts'
+  ? dataStr.replace(/\s/g, '').toLowerCase().slice(0, -1)
+  : dataStr.replace(/\s/g, '').toLowerCase();
+}
