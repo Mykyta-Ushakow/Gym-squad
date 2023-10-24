@@ -10,6 +10,7 @@ export const API_PROPS = Object.freeze({
 });
 
 import axios from 'axios';
+import { OpenModal } from './modal'
 
 const { BASE_URL, EXERCISE_ENDPOINT } = API_PROPS;
 
@@ -23,13 +24,15 @@ function setLimit() {
 export function onClick(event) {
 	const card = event.currentTarget;
 
-	console.log(card.dataset.name, card.dataset.category);
+	// console.log(card.dataset.name, card.dataset.category);
 
 	fetchExercises(card.dataset.category, card.dataset.name)
 	.then(resp => {
-		console.log(resp);
+		// console.log(resp);
 		const list = document.querySelector('.filter-gallery');
 		list.innerHTML = createExercisesMarkup(resp.results);
+		const startModalBtns = document.querySelectorAll(".exercises-btn");
+		startModalBtns.forEach(el => el.addEventListener("click", OpenModal));
 	});
 }
 
@@ -72,7 +75,7 @@ export function createExercisesMarkup(data) {
 }
 
 function createMarkup({ rating, name, burnedCalories, bodyPart, target, _id }) {
-  return `<li class="exercises-item" data-exercise-id="${_id}">
+  return `<li class="exercises-item">
 			<div class="exercises-header">
 				<div class="exercises-meta-container">
 					<p class="exercises-meta">WORKOUT</p>
@@ -85,7 +88,8 @@ function createMarkup({ rating, name, burnedCalories, bodyPart, target, _id }) {
 						</svg>
 					</div>
 				</div>
-				<button type="button" class="exercises-btn" data-modal-exercise="open">
+				<button type="button" class="exercises-btn"
+				data-exercise-id="${_id}" data-modal-exercise="open">
 					Start
 					<svg width="16" height="16" class="exercises-btn-svg">
 						<use href="../img/sprite.svg#icon-arrow-right"></use>
@@ -104,22 +108,22 @@ function createMarkup({ rating, name, burnedCalories, bodyPart, target, _id }) {
 			</div>
 				<ul class="exercises-descr-list">
 					<li class="exercises-descr-item">
-						<span class="exercises-descr-span">
 						Burned calories:
-						</span>
+						<span class="exercises-descr-span">
 						${burnedCalories} / 3 min
+						</span>
 					</li>
 					<li class="exercises-descr-item">
-						<span class="exercises-descr-span">
 						Body part:
-						</span>
+						<span class="exercises-descr-span">
 						${bodyPart}
+						</span>
 					</li>
 					<li class="exercises-descr-item">
+						Target:	
 						<span class="exercises-descr-span">
-						Target:
-						</span>
 						${target}	
+						</span>
 					</li>
 				</ul>
 		</li>`;

@@ -1,5 +1,5 @@
 // import * as main from '../main';
-import { fetchAllExercises, fetchExercises, createExercisesMarkup, onClick } from './exercises';
+import { onClick } from './exercises';
 
 function setLimit() {
   const isLargeScreen = window.matchMedia('(min-width: 768px)').matches;

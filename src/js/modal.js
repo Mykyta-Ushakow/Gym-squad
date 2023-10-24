@@ -42,7 +42,10 @@ function onCloseModalBtn(event) {
 }
 
 // Open modal by clicking button Start
-export function OpenModal(e) {}
+export function OpenModal(e) {
+  const exerciseID = e.currentTarget.dataset.exerciseId;
+  console.log(exerciseID);
+}
 
 let _id;
 _id = '64f389465ae26083f39b17a4';
