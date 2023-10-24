@@ -3,6 +3,7 @@
   margin-right: auto;
   margin-left: auto;
 }
+
 /* Стилі для фільтрів */
 .categories_h {
   color: var(--text-color-dark);
@@ -55,11 +56,13 @@
 .filter:focus {
   color: var(--text-color-dark);
 }
+
 @media screen and (min-width: 768px) {
   .categories_h {
     font-size: 44px;
     line-height: 1.1;
   }
+
   .categories_button {
     padding-left: 0;
     padding-bottom: 40px;
@@ -70,11 +73,13 @@
     line-height: 1.5;
   }
 }
+
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .categories-container {
     max-width: 705px;
     margin: 0 auto;
   }
+
   .categories_h {
     padding: 0 0 32px 0;
   }
@@ -84,6 +89,7 @@
   .categories-container {
     max-width: 1440px;
   }
+
   .categories_menu {
     display: flex;
     flex-direction: row;
@@ -125,11 +131,13 @@
   border-radius: 12px;
   transition: transform 0.3s;
 }
+
 .image-card:hover,
 .image-card:focus {
   filter: brightness(150%);
   transform: scale(1.05);
 }
+
 .image {
   border-radius: 12px;
   filter: brightness(50%);
@@ -149,6 +157,7 @@
   color: var(--text-color-light);
   text-transform: capitalize;
 }
+
 .filterText {
   /* font-size: 20px;
   line-height: 1;
@@ -159,6 +168,7 @@
   font-size: 12px;
   line-height: 1.5;
 }
+
 .nameText {
   /* filter: brightness(60%);
   font-size: 12px;
@@ -175,24 +185,29 @@
     flex-direction: row;
     gap: 15px;
   }
+
   .image-card {
     padding: 0;
   }
 }
+
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .image-card {
     max-width: 225px;
     max-height: 225px;
   }
+
   .filterText {
     /* font-size: 24px; */
     font-size: 12px;
   }
+
   .nameText {
     /* font-size: 12px; */
     font-size: 24px;
   }
 }
+
 @media screen and (min-width: 1280px) {
   .home {
     display: flex;
@@ -201,6 +216,7 @@
     justify-content: space-between;
     padding: 0 32px;
   }
+
   .gallery-container {
     max-width: 900px;
   }
@@ -209,11 +225,13 @@
     /*max-height: 242px;*/
     max-width: 290px;
   }
+
   .image {
     /* max-width: 290px;*/
     max-height: 242px;
   }
 }
+
 /*пагінація*/
 .pagination-container {
   display: flex;
@@ -248,21 +266,37 @@
 
   transition: opacity 0.3s;
 }
+
+.pagination-container button:disabled {
+  color: var(--pagination-grey);
+  border: none;
+  cursor: default;
+}
+
+.pagination-container button:disabled:focus,
+.pagination-container button:disabled:hover {
+  width: unset;
+  height: unset;
+}
+
 @media screen and (min-width: 768px) {
   .pagination-container button {
     font-size: 24px;
     line-height: 1.33;
   }
+
   .pagination-container button:hover,
   .pagination-container button:focus,
   .pagination-container button.active {
     width: 33px;
     height: 33px;
   }
+
   .pagination-container {
     padding-bottom: 64px;
   }
 }
+
 @media screen and (min-width: 1280px) {
   .pagination-container {
     padding-bottom: 0;
