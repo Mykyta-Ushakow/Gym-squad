@@ -16,7 +16,7 @@
 }
 .footer-list-soc {
   display: flex;
-  gap: 20px;
+  gap: 12px;
   margin-bottom: 40px;
 }
 .social-footer-icon {
@@ -27,16 +27,20 @@
   opacity: 0.8;
 }
 .social-footer-icon:hover,
-.social-footer-icon:hover {
-  fill: var(--stars-golden);
-  border: var(--stars-golden);
+.social-footer-icon:focus {
+  border: 1px solid rgba(244, 244, 244, 0.1);
+  background: var(--text-color-light);
   opacity: 1;
 }
 
 .soc-logo {
   fill: var(--text-color-light);
 }
-
+.soc-logo:hover,
+.soc-logo:focus {
+  fill: var(--text-color-dark);
+  opacity: 0.8;
+}
 .footer-title {
   width: 100%;
   color: var(--text-color-light);
@@ -241,7 +245,7 @@ input {
     margin-right: 158px;
   }
   .footer-title {
-    width: 100%;
+    max-width: 554px;
     font-size: 56px;
     font-style: normal;
     font-weight: 400;
@@ -270,13 +274,12 @@ input {
   }
   .footer-credo {
     min-width: 178px;
-    margin-right: 136px;
   }
 
   .text-container-2 {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-left: 0;
+    margin-left: 136px;
   }
 }
