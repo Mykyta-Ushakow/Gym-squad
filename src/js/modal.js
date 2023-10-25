@@ -100,6 +100,9 @@ export function OpenModal(e) {
     function onremoveFavBtn() {
       localStorage.removeItem(data._id);
       checkLocal();
+      if (location.pathname === '/Gym-squad//favorite.html') {
+        location.reload();
+      }
     }
 
     // Fill stars by rating
