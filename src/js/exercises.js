@@ -73,7 +73,7 @@ function createMarkup({ rating, name, burnedCalories, bodyPart, target, _id }) {
 						${rating.toFixed(1)}
 						</p>
 						<svg width="18" height="18" class="exercises-svg">
-							<use href="./img/sprite.svg#icon-star"></use>
+							<use href="/img/sprite.svg#icon-star"></use>
 						</svg>
 					</div>
 				</div>
@@ -81,14 +81,14 @@ function createMarkup({ rating, name, burnedCalories, bodyPart, target, _id }) {
 				data-exercise-id="${_id}" data-modal-exercise="open">
 					Start
 					<svg width="16" height="16" class="exercises-btn-svg">
-						<use href="./img/sprite.svg#icon-arrow-right"></use>
+						<use href="/img/sprite.svg#icon-arrow-right"></use>
 					</svg>
 				</button>
 			</div>
 			<div class="exercises-name-container">
 				<span class="exercises-name-span">
 				<svg width="20" height="20" class="exercises-name-svg">
-					<use href="./img/sprite.svg#icon-running-circled"></use>
+					<use href="/img/sprite.svg#icon-running-circled"></use>
 				</svg>
 				</span>
 				<p class="exercises-name">
