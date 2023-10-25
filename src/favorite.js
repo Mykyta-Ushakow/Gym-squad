@@ -102,10 +102,10 @@ function createCardMarkup({ name, burnedCalories, bodyPart, target, _id }) {
           </button>
         </div>
         <div class="fav-btn-container">
-          <button type="button" data-modal-open class="fav-exercises-btn open-modal-btn" data-exercise-id="${_id}">Start</button>
+          <button type="button" data-modal-open class="fav-exercises-btn open-modal-btn" data-exercise-id="${_id}">Start
           <svg width="16" height="16" class="favorites-icon-arrow">
             <use id="favorites-icon-arrow" href="${svgSprite}#icon-arrow-right"></use>
-          </svg>
+          </svg></button>
         </div>
       </div>
       <div class="fav-exercises-name-container">
