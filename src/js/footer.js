@@ -1,5 +1,5 @@
 // import * as main from '../main';
-
+import axios from 'axios';
 document
   .querySelector('#subscriptionForm')
   .addEventListener('submit', function (event) {
@@ -11,7 +11,7 @@ document
     if (!checkValidity(email)) {
       alert('Будь ласка, введіть коректну електронну пошту');
     } else {
-      main.axios
+      axios
         .post('https://your-energy.b.goit.study/api/subscription', {
           email: email,
         })
