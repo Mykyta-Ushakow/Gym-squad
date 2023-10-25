@@ -2,13 +2,9 @@
     list-style: none;
     display: flex;
     width: 335px;
-    /* height: 141px; */
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-
-    /* overflow: hidden;
-    text-overflow: ellipsis; */
 }
 
 .exercises-item {
@@ -18,22 +14,22 @@
     background: var(--exercise-card-white);
     border-radius: 15px;
     padding: 16px;
-    /* overflow: hidden;
-    text-overflow: ellipsis; */
-    
+
 }
-.exercises-header{
+
+.exercises-header {
     display: flex;
     align-items: space-between;
     justify-content: space-between;
 }
-.exercises-meta-container{
+
+.exercises-meta-container {
     display: flex;
     gap: 16px;
     align-items: center;
 }
 
-.exercises-meta{
+.exercises-meta {
     border-radius: 15px;
     border: 1px solid var(--text-color-dark);
 
@@ -55,7 +51,7 @@
 .raiting-wrap {
 
     width: 40px;
-    height: 18px; 
+    height: 18px;
 
     display: inline-flex;
     justify-content: center;
@@ -63,7 +59,7 @@
     gap: 2px;
 }
 
-.exercises-raiting{
+.exercises-raiting {
     color: var(--text-color-dark);
 
     font-feature-settings: 'clig' off, 'liga' off;
@@ -74,11 +70,13 @@
     line-height: 1.5;
 
 }
-.exercises-svg{
+
+.exercises-svg {
     fill: var(--stars-golden);
 
 }
-.exercises-btn{
+
+.exercises-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -91,15 +89,31 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 18px; /* 128.571% */
-
+    line-height: 18px;
+    /* 128.571% */
 
 }
-.exercises-btn-svg{
+
+.exercises-btn:hover,
+.exercises-btn:focus {
+    background-color: var(--text-color-dark);
+    color: var(--text-color-light);
+    border-radius: 15px;
+    /* transform: scale(1.1); */
+    /* padding: 2px; */
+}
+
+.exercises-btn-svg {
     fill: var(--text-color-dark);
 }
 
-.exercises-name-container{
+
+.exercises-btn:hover .exercises-btn-svg,
+.exercises-btn:focus .exercises-btn-svg {
+    fill: var(--text-color-light);
+}
+
+.exercises-name-container {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -115,22 +129,22 @@
     white-space: nowrap;
 }
 
-.exercises-name-span{    
+.exercises-name-span {
     width: 24px;
     height: 24px;
 }
 
-.exercises-name-svg{
+.exercises-name-svg {
     width: 24px;
     height: 24px;
 }
 
-.exercises-name:first-letter{
+.exercises-name:first-letter {
     text-transform: capitalize;
 
 }
 
-.exercises-name{
+.exercises-name {
     color: var(--text-color-dark);
 
     font-feature-settings: 'clig' off, 'liga' off;
@@ -145,14 +159,7 @@
     white-space: nowrap;
 }
 
-/* .exercises-descr-container{
-    display: flex;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
-} */
-
-.exercises-descr-list{
+.exercises-descr-list {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -165,7 +172,7 @@
     max-width: 100%;
 }
 
-.exercises-descr-item{
+.exercises-descr-item {
     color: rgba(36, 36, 36, 0.40);
 
     font-feature-settings: 'clig' off, 'liga' off;
@@ -180,7 +187,7 @@
     align-items: center;
     gap: 2px;
     flex-wrap: nowrap;
-    
+
     white-space: nowrap;
 }
 
@@ -193,9 +200,69 @@
 .exercises-descr-span::first-letter {
     text-transform: capitalize;
 }
-.exercises-descr-span{
+
+.exercises-descr-span {
     display: inline-block;
     color: var(--text-color-dark);
 }
 
 
+@media screen and (min-width: 768px) {
+    .exercises-list {
+        display: flex;
+        width: calc(344px * 2 + 16px);
+        justify-content: center;
+        flex-wrap: wrap;
+        column-gap: 16px;
+        row-gap: 32px;
+    }
+
+    .exercises-item {
+        width: 344px;
+        min-height: 141px;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 32px;
+        flex-shrink: 0;
+    }
+
+    .exercises-btn {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.5;
+        /* 150% */
+
+        align-items: center;
+        justify-content: center;
+    }
+
+    .exercises-name-container {
+        margin-bottom: 8px;
+    }
+
+    .exercises-name-svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .exercises-name {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.33;
+        /* 133.333% */
+    }
+}
+
+
+@media screen and (min-width: 1280px) {
+    .exercises-list {
+        width: calc(442px * 2 + 16px);
+    }
+
+    .exercises-item {
+        width: 442px;
+        height: 141px;
+    }
+}
