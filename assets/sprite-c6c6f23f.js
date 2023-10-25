@@ -68,7 +68,7 @@
         <button class="modal-bnt-remove-from-fav btn-display" type="button">
           Remove from favorites
           <svg width="18" height="18">
-            <use href="./img/sprite.svg#icon-heart"></use>
+            <use href="./img/sprite.svg#icon-trash"></use>
           </svg>
         </button>
       </div>
