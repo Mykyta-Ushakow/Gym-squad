@@ -1,5 +1,6 @@
 // import * as main from "../main";
 import axios from 'axios';
+import svgSprite from '../img/sprite.svg';
 
 // Liseners for backdrope
 const modal = document.querySelector('.modal');
@@ -145,7 +146,7 @@ export function OpenModal(e) {
       let starsMarkUp = '';
       const stars = `<li class="stars">
                 <svg class="star-item" wigth="18" height="18">
-                  <use href="./img/sprite.svg#icon-star"></use>
+                  <use href="${svgSprite}#icon-star"></use>
                 </svg>
               </li>`;
 
@@ -208,13 +209,13 @@ export function OpenModal(e) {
         <button class="modal-bnt-add-to-fav" type="button">
           Add to favorites
           <svg width="18" height="18">
-            <use href="./img/sprite.svg#icon-heart"></use>
+            <use href="${svgSprite}#icon-heart"></use>
           </svg>
         </button>
         <button class="modal-bnt-remove-from-fav btn-display" type="button">
           Remove from favorites
           <svg width="18" height="18">
-            <use href="./img/sprite.svg#icon-trash"></use>
+            <use href="${svgSprite}#icon-trash"></use>
           </svg>
         </button>
       </div>
