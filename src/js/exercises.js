@@ -1,4 +1,5 @@
 // import * as main from "../main";
+import svgSprite from '../img/sprite.svg';
 
 export const API_PROPS = Object.freeze({
   BASE_URL: 'https://your-energy.b.goit.study/api',
@@ -76,7 +77,7 @@ function createMarkup({ rating, name, burnedCalories, bodyPart, target, _id }) {
 						${rating.toFixed(1)}
 						</p>
 						<svg width="18" height="18" class="exercises-svg">
-							<use href="../src/img/sprite.svg#icon-star"></use>
+							<use href="${svgSprite}#icon-star"></use>
 						</svg>
 					</div>
 				</div>
@@ -84,14 +85,14 @@ function createMarkup({ rating, name, burnedCalories, bodyPart, target, _id }) {
 				data-exercise-id="${_id}" data-modal-exercise="open">
 					Start
 					<svg width="16" height="16" class="exercises-btn-svg">
-						<use href="../src/img/sprite.svg#icon-arrow-right"></use>
+						<use href="${svgSprite}#icon-arrow-right"></use>
 					</svg>
 				</button>
 			</div>
 			<div class="exercises-name-container">
 				<span class="exercises-name-span">
 				<svg width="20" height="20" class="exercises-name-svg">
-					<use href="../src/img/sprite.svg#icon-running-circled"></use>
+					<use href="${svgSprite}#icon-running-circled"></use>
 				</svg>
 				</span>
 				<p class="exercises-name">
