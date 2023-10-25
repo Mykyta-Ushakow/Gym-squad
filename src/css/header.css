@@ -199,11 +199,8 @@ body {
   display: none;
 
   @media screen and (max-width: 767px) {
-    position: absolute;
-    right: 20px;
     display: block;
     margin-left: auto;
-    margin: 0;
     padding: 0;
     line-height: 0;
     border: none;
