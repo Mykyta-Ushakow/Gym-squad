@@ -83,7 +83,7 @@ import"./header-066bfb17.js";function Le(e,t){return function(){return e.apply(t
 						${e.toFixed(1)}
 						</p>
 						<svg width="18" height="18" class="exercises-svg">
-							<use href="./img/sprite.svg#icon-star"></use>
+							<use href="/img/sprite.svg#icon-star"></use>
 						</svg>
 					</div>
 				</div>
@@ -91,14 +91,14 @@ import"./header-066bfb17.js";function Le(e,t){return function(){return e.apply(t
 				data-exercise-id="${o}" data-modal-exercise="open">
 					Start
 					<svg width="16" height="16" class="exercises-btn-svg">
-						<use href="./img/sprite.svg#icon-arrow-right"></use>
+						<use href="/img/sprite.svg#icon-arrow-right"></use>
 					</svg>
 				</button>
 			</div>
 			<div class="exercises-name-container">
 				<span class="exercises-name-span">
 				<svg width="20" height="20" class="exercises-name-svg">
-					<use href="./img/sprite.svg#icon-running-circled"></use>
+					<use href="/img/sprite.svg#icon-running-circled"></use>
 				</svg>
 				</span>
 				<p class="exercises-name">
