@@ -44,6 +44,7 @@
 
     @media screen and (min-width: 1280px) {
         width: 494px;
+        flex-direction: column;
     }
 }
 
@@ -71,10 +72,17 @@
     padding: 20px;
     position: relative;
     display: flex;
+    height: 159px;
 
     @media screen and (min-width: 768px) {
         padding: 40px;
+        height: 220px;
         width: 704px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        height: 230px;
+        width: 494px;
     }
 }
 
@@ -220,4 +228,193 @@
     @media screen and (min-width: 1280px) {
         margin-top: unset;
     }
+}
+
+.favorites-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+    list-style: none;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: 32px;
+        column-gap: 16px;
+        margin-top: 64px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin-top: unset;
+        justify-content: center;
+    }
+}
+
+.fav-exercises-item {
+    max-width: 335px;
+    padding: 16px;
+    background: var(--exercise-card-white);
+    border-radius: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media screen and (min-width: 768px) {
+        width: 344px;
+        max-width: unset;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 344px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 405px;
+    }
+}
+
+.fav-exercises-header {
+    display: flex;
+    align-items: space-between;
+    justify-content: space-between;
+}
+
+.fav-exercises-meta-container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.fav-exercises-meta {
+    border-radius: 15px;
+    border: 1px solid var(--text-color-dark);
+    display: inline-flex;
+    padding: 5px 7.5px;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color-dark);
+    font-weight: var(--exercises-font);
+    font-size: 12px;
+}
+
+.fav-btn-container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.favorites-icon-trash:hover,
+.favorites-icon-trash:focus {
+    background-color: var(--text-color-dark);
+    fill: var(--text-color-light);
+    border-radius: 15px;
+    transform: scale(1.8);
+    padding: 2px;
+    cursor: pointer;
+}
+
+.fav-exercises-btn {
+    display: block;
+    align-items: center;
+    border: none;
+    background-color: inherit;
+    color: var(--text-color-dark);
+    font-family: var(--main-font);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.28;
+}
+
+.fav-exercises-btn:hover,
+.fav-exercises-btn:focus {
+    background-color: var(--text-color-dark);
+    color: var(--text-color-light);
+    border-radius: 15px;
+    transform: scale(1.1);
+    padding: 2px;
+}
+
+.fav-exercises-name-container {
+    margin-top: 27px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fav-exercises-name {
+    color: var(--text-color-dark);
+    font-weight: var(--main-font);
+    font-size: 20px;
+    line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fav-exercises-name:first-letter {
+    text-transform: capitalize;
+}
+
+.fav-exercises-descr-list {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.fav-exercises-descr-item {
+    color: rgba(36, 36, 36, 0.40);
+    font-weight: var(--main-font);
+    font-size: 12px;
+    line-height: 1.5;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.fav-exercises-descr-item:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fav-exercises-descr-span::first-letter {
+    text-transform: capitalize;
+}
+
+.fav-exercises-descr-span {
+    display: inline-block;
+    color: var(--text-color-dark);
+}
+
+.load-more-button {
+    border-radius: 15px;
+    border: 1px solid var(--text-color-dark);
+    display: inline-flex;
+    padding: 5px 7.5px;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color-dark);
+    font-weight: var(--exercises-font);
+    font-size: 12px;
+    margin: 20px auto 0;
+    background-color: var(--exercise-card-white);
+    text-transform: uppercase;
+}
+
+.load-more-button:hover,
+.load-more-button:focus {
+    background-color: var(--text-color-dark);
+    color: var(--text-color-light);
+    border-color: var(--exercise-card-white);
 }
