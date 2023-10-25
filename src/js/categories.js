@@ -1,6 +1,8 @@
 // import * as main from '../main';
 import { onClick } from './exercises';
 
+let activeFilter = 'Body parts'; // Initialize with a default value
+
 function setLimit() {
   const isLargeScreen = window.matchMedia('(min-width: 768px)').matches;
   return isLargeScreen ? 12 : 9;
@@ -16,6 +18,7 @@ async function searchImages(filter, page = 1) {
 
   if (activeButton) {
     activeButton.classList.add('active');
+    activeFilter = filter; // Update the active filter
   } /*else {
     console.error(`Button for filter "${filter}" not found.`);
   }*/
@@ -52,13 +55,12 @@ async function searchImages(filter, page = 1) {
           filterText.classList.add('filterText');
           imageCard.dataset.category = dataSlicer(imageData.filter);
 
-
           imageCard.appendChild(image);
           imageCard.appendChild(nameText);
           imageCard.appendChild(filterText);
 
           imageFilterGallery.appendChild(imageCard);
-        })        
+        });
       } else {
         const noResultsMessage = document.createElement('p');
         noResultsMessage.textContent =
@@ -98,22 +100,24 @@ const equipmentButton = document.getElementById('equipmentButton');
 
 bodyPartsButton.addEventListener('click', function () {
   searchImages('Body parts');
+  bodyPartsButton.classList.add('active');
 });
 
 musclesButton.addEventListener('click', function () {
   searchImages('Muscles');
+  musclesButton.classList.add('active');
 });
 
 equipmentButton.addEventListener('click', function () {
   searchImages('Equipment');
+  equipmentButton.classList.add('active');
 });
-
-window.addEventListener('load', () => {
-  searchImages('Body parts');
-});
-
 function dataSlicer(dataStr) {
   return dataStr === 'Body parts'
-  ? dataStr.replace(/\s/g, '').toLowerCase().slice(0, -1)
-  : dataStr.replace(/\s/g, '').toLowerCase();
+    ? dataStr.replace(/\s/g, '').toLowerCase().slice(0, -1)
+    : dataStr.replace(/\s/g, '').toLowerCase();
 }
+window.addEventListener('load', () => {
+  searchImages('Body parts');
+  bodyPartsButton.classList.add('active');
+});
