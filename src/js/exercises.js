@@ -15,7 +15,7 @@ import { OpenModal } from './modal';
 const { BASE_URL, EXERCISE_ENDPOINT } = API_PROPS;
 
 const base_url = 'https://mykyta-ushakow.github.io/Gym-squad/';
-const svgPath = `${base_url}img/sprite.svg`;
+const svgPath = `${base_url}src/img/sprite.svg`;
 
 let previousExercisePage = 1;
 
