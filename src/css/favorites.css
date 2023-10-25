@@ -170,7 +170,6 @@
 
     @media screen and (min-width: 1280px) {
         width: 239px;
-        height: 141px;
     }
 }
 
@@ -247,7 +246,7 @@
 
     @media screen and (min-width: 1280px) {
         margin-top: unset;
-        justify-content: center;
+        justify-content: center;       
     }
 }
 
@@ -258,6 +257,7 @@
     border-radius: 15px;
     overflow: hidden;
     text-overflow: ellipsis;
+    height: 141px;
 
     @media screen and (min-width: 768px) {
         width: 344px;
@@ -271,6 +271,11 @@
     @media screen and (min-width: 1440px) {
         width: 405px;
     }
+}
+
+.fav-exercises-item:hover,
+.fav-exercises-item:focus {
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 
 .fav-exercises-header {
@@ -297,12 +302,6 @@
     font-size: 12px;
 }
 
-.fav-btn-container {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
-
 .favorites-btn-trash {
     border: none;
     background-color: var(--exercise-card-white);
@@ -318,7 +317,7 @@
     fill: var(--text-color-light);
     border-radius: 15px;
     transform: scale(1.2);
-    padding: 1px;
+    padding: 1px 3px;
 }
 
 .fav-exercises-btn {
@@ -331,6 +330,9 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 1.28;
+    display: flex;
+    gap: 8px;
+    align-items: center;
 }
 
 .fav-exercises-btn:hover,
@@ -339,7 +341,9 @@
     color: var(--text-color-light);
     border-radius: 15px;
     transform: scale(1.1);
-    padding: 2px;
+    padding: 2px 10px;
+    gap: 15px;
+    fill: var(--text-color-light);
 }
 
 .fav-exercises-name-container {
