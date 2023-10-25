@@ -1,5 +1,6 @@
 import '/js/header';
-import * as modal from './js/modal';
+import * as modal from '/js/modal';
+import svgSprite from '/img/sprite.svg';
 
 const quoteData = localStorage.getItem('quoteData');
 let quote = '';
@@ -49,66 +50,43 @@ function displayQuote(quote, author) {
   authorElement.textContent = author;
 }
 
+let favoriteCards = [];
+let currentPage = 1;
 let cardsPerPage = 8;
-let loadMoreButton;
 
-const screenWidth = window.innerWidth;
-if (screenWidth >= 768 && screenWidth < 1280) {
-  cardsPerPage = 10;
-} else if (screenWidth >= 1280) {
-  cardsPerPage = 6;
+function updateCardsPerPage() {
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth < 768) {
+    cardsPerPage = 8;
+  } else if (screenWidth >= 768 && screenWidth < 1280) {
+    cardsPerPage = 10;
+  } else if (screenWidth >= 1280) {
+    cardsPerPage = 6;
+  }
+
+  displayFavoriteCards(currentPage);
 }
 
-function displayFavoriteCards() {
-  const favoritesContainer = document.querySelector('.favorites-container');
-  const favText = document.querySelector('.fav-text');
+window.addEventListener('resize', updateCardsPerPage);
 
-  favoritesContainer.innerHTML = '';
+updateCardsPerPage();
 
-  let cardCount = 0;
-  for (let key in localStorage) {
-    if (localStorage.hasOwnProperty(key)) {
+function loadFavoriteCards() {
+  favoriteCards = Object.values(localStorage)
+    .map(item => {
       try {
-        const cardData = JSON.parse(localStorage[key]);
-
-        if (cardData && cardData._id) {
-          const cardMarkup = createCardMarkup(cardData);
-          favoritesContainer.insertAdjacentHTML('beforeend', cardMarkup);
-          cardCount++;
-
-          if (cardCount >= cardsPerPage) {
-            break;
-          }
-        }
+        return JSON.parse(item);
       } catch (error) {
-        // console.error 'Error parsing JSON data for key:', key, error);
+        // console.error('Error parsing JSON data:', error);
+        return null;
       }
-    }
-  }
-
-  const loadMoreButton = document.getElementById('load-more-button');
-  loadMoreButton.addEventListener('click', loadMoreCards);
-
-  if (cardCount < cardsPerPage) {
-    loadMoreButton.style.display = 'none';
-  } else {
-    loadMoreButton.style.display = 'block';
-  }
-
-  if (cardCount > 0) {
-    favText.style.display = 'none';
-  } else {
-    favText.style.display = 'block';
-  }
+    })
+    .filter(cardData => cardData && cardData._id);
 }
-
-const openButtons = document.querySelectorAll('[data-modal-open]');
-openButtons.forEach(openModalBtnItem => {
-  openModalBtnItem.addEventListener('click', openModal);
-});
 
 function createCardMarkup({
-  name,
+name,
   burnedCalories,
   bodyPart,
   target,
@@ -119,21 +97,23 @@ function createCardMarkup({
       <div class="fav-exercises-header">
         <div class="fav-exercises-meta-container">
           <p class="fav-exercises-meta">WORKOUT</p>
-          <svg width="16" height="16" class="favorites-icon-trash" data-card-id="${_id}">
-            <use href="./img/sprite.svg#icon-trash"></use>
-          </svg>
+          <button type="button" class="favorites-btn-trash">
+            <svg width="16" height="16" data-card-id="${_id}">
+              <use href="${svgSprite}#icon-trash"></use>
+            </svg>
+          </button>
         </div>
         <div class="fav-btn-container">
           <button type="button" data-modal-open class="fav-exercises-btn open-modal-btn">Start</button>
           <svg width="16" height="16" class="favorites-icon-arrow">
-            <use id="favorites-icon-arrow" href="./img/sprite.svg#icon-arrow-right"></use>
+            <use id="favorites-icon-arrow" href="${svgSprite}#icon-arrow-right"></use>
           </svg>
         </div>
       </div>
       <div class="fav-exercises-name-container">
         <span class="fav-exercises-name-span">
           <svg width="24" height="24" class="fav-exercises-name-svg">
-            <use href="../img/sprite.svg#icon-running-circled"></use>
+            <use href="${svgSprite}#icon-running-circled"></use>
           </svg>
         </span>
         <p class="fav-exercises-name">
@@ -165,50 +145,98 @@ function createCardMarkup({
   return cardMarkup;
 }
 
-const removeFavBtns = document.querySelectorAll('.favorites-icon-trash');
-removeFavBtns.forEach(removeFavBtn => {
-  removeFavBtn.addEventListener('click', onRemoveFavBtn);
-});
+function displayFavoriteCards(page) {
+  const favoritesContainer = document.querySelector('.favorites-container');
+  favoritesContainer.innerHTML = '';
 
-function onRemoveFavBtn(event) {
-  const cardId = event.currentTarget.getAttribute('data-card-id');
-  localStorage.removeItem(cardId);
-  displayFavoriteCards();
-}
+  const startIndex = (page - 1) * cardsPerPage;
+  const endIndex = startIndex + cardsPerPage;
+  const cardsToDisplay = favoriteCards.slice(startIndex, endIndex);
 
-function loadMoreCards() {
-  const currentCardCount = document.querySelectorAll(
-    '.fav-exercises-item'
-  ).length;
-
-  let cardsToLoad = cardsPerPage;
-
-  if (screenWidth >= 768 && screenWidth < 1280) {
-    cardsToLoad = 10;
-  } else if (screenWidth >= 1280) {
-    cardsToLoad = 6;
+  if (cardsToDisplay.length === 0) {
+    const favText = document.querySelector('.fav-text');
+    favText.style.display = 'block';
+  } else {
+      const favText = document.querySelector('.fav-text');
+    favText.style.display = 'none';
   }
 
-  const startIndex = currentCardCount;
-  const endIndex = startIndex + cardsToLoad;
-
-  for (let i = startIndex; i < endIndex && i < localStorage.length; i++) {
-    const key = `exercise_${i}`;
-    const cardData = JSON.parse(localStorage.getItem(key));
-
-    if (cardData && cardData._id) {
-      const cardMarkup = createCardMarkup(cardData);
-      const favoritesContainer = document.querySelector('.favorites-container');
-      favoritesContainer.insertAdjacentHTML('beforeend', cardMarkup);
-    }
-
-    if (startIndex + cardsToLoad >= localStorage.length) {
-      loadMoreButton.style.display = 'none';
-    }
-  }
+  cardsToDisplay.forEach(cardData => {
+    const cardMarkup = createCardMarkup(cardData);
+    favoritesContainer.insertAdjacentHTML('beforeend', cardMarkup);
+  });
 }
 
-loadMoreButton = document.getElementById('load-more-button');
-loadMoreButton.addEventListener('click', loadMoreCards);
+function handlePagination(data, currentPage) {
+  const paginationContainer = document.getElementById('pagination');
+  paginationContainer.innerHTML = '';
 
-displayFavoriteCards();
+  const totalPages = Math.ceil(favoriteCards.length / cardsPerPage);
+  const maxButtons = 7;
+
+  let pagesToDisplay = [];
+
+  if (totalPages <= maxButtons) {
+    pagesToDisplay = Array.from({ length: totalPages }, (_, i) => i + 1);
+  } else {
+    const neighbors = 2;
+
+    if (currentPage <= neighbors + 1) {
+      pagesToDisplay = [1, 2, 3, 4, '...', totalPages];
+    } else if (currentPage >= totalPages - neighbors) {
+      pagesToDisplay = [
+        1,
+        '...',
+        totalPages - 3,
+        totalPages - 2,
+        totalPages - 1,
+        totalPages,
+      ];
+    } else {
+      pagesToDisplay = [
+        1,
+        '...',
+        currentPage - 1,
+        currentPage,
+        currentPage + 1,
+        '...',
+        totalPages,
+      ];
+    }
+  }
+
+  pagesToDisplay.forEach(pageNumber => {
+    const pageButton = document.createElement('button');
+    pageButton.textContent = pageNumber === '...' ? '...' : pageNumber;
+    pageButton.dataset.pageNumber = pageNumber === '...' ? null : pageNumber;
+
+    if (pageNumber === currentPage) {
+      pageButton.classList.add('active');
+    }
+
+    if (pageNumber !== '...') {
+      pageButton.addEventListener('click', event => {
+        const page = parseInt(pageNumber);
+        displayFavoriteCards(page);
+      });
+    } else {
+      pageButton.disabled = true;
+    }
+
+    paginationContainer.appendChild(pageButton);
+  });
+}
+
+function initialize() {
+  loadFavoriteCards();
+  displayFavoriteCards(currentPage);
+  handlePagination(
+    {
+      totalPages: Math.ceil(favoriteCards.length / cardsPerPage),
+      page: currentPage,
+    },
+    currentPage
+  );
+}
+
+initialize();
