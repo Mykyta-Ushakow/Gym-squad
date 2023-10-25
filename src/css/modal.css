@@ -39,6 +39,7 @@
     min-height: 435px;
   }
 }
+
 .container-for-desktop {
   @media screen and (min-width: 768px) {
     /* display: flex;
@@ -84,6 +85,7 @@
 
 .modal-gift {
   border-radius: 12px;
+
   @media screen and (min-width: 768px) {
     width: 270px;
     height: 259px;
@@ -113,6 +115,7 @@
   font-style: normal;
   line-height: 1.5em;
 }
+
 .rating-information {
   display: flex;
 }
@@ -121,14 +124,17 @@
   display: flex;
   align-items: flex-start;
   margin-bottom: 20px;
+
   @media screen and (min-width: 768px) {
     margin-bottom: 16px;
   }
 }
+
 .stars {
   display: block;
   /* width: 18px; */
 }
+
 .star-item {
   fill: rgba(244, 244, 244, 0.2);
   width: 18px;
@@ -148,6 +154,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+
   @media screen and (min-width: 768px) {
     gap: 16px;
   }
@@ -178,21 +185,35 @@
 
 .modal-buttons {
   padding-top: 20px;
+
   @media screen and (min-width: 768px) {
     padding-top: 64px;
   }
 }
+
 .modal-bnt-add-to-fav {
   display: flex;
   gap: 8px;
   color: var(--text-color-dark);
-  background-color: #f4f4f4;
+  background-color: var(--text-color-light);
   border: none;
   border-radius: 30px;
   padding: 12px 24px;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28em;
+}
+
+.modal-bnt-add-to-fav:hover,
+.modal-bnt-add-to-fav:focus {
+  background-color: var(--text-color-dark);
+  border: 1px solid var(--text-color-light);
+  color: var(--text-color-light);
+}
+
+.modal-bnt-add-to-fav:hover>svg,
+.modal-bnt-add-to-fav:focus>svg {
+  fill: var(--text-color-light);
 }
 
 .modal-bnt-remove-from-fav {
@@ -208,9 +229,22 @@
   line-height: 1.28em;
 }
 
+.modal-bnt-remove-from-fav:hover,
+.modal-bnt-remove-from-fav:focus {
+  background-color: var(--text-color-dark);
+  border: 1px solid var(--text-color-light);
+  color: var(--text-color-light);
+}
+
+.modal-bnt-remove-from-fav:hover>svg,
+.modal-bnt-remove-from-fav:focus>svg {
+  fill: var(--text-color-light);
+}
+
 .btn-display {
   display: none;
 }
+
 .rating-stars-fill {
   fill: var(--stars-golden);
 }
