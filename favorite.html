@@ -11,8 +11,9 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>My Favorites</title>
   
-  <script type="module" crossorigin src="/Gym-squad/assets/header-066bfb17.js"></script>
-  <link rel="stylesheet" href="/Gym-squad/assets/header-d9e83b80.css">
+  <script type="module" crossorigin src="/Gym-squad/assets/favorite-7d0a921e.js"></script>
+  <link rel="modulepreload" crossorigin href="/Gym-squad/assets/modal-fb76c29f.js">
+  <link rel="stylesheet" href="/Gym-squad/assets/modal-03615f62.css">
 </head>
 
 <body>
@@ -146,12 +147,8 @@
           <div class="fav-quote-words">
             <h3 class="fav-quote-subtitle">Quote of the day</h3>
             <p class="fav-quote">
-              <!-- A lot of times I find that people who are blessed with the most talent
-              don't ever develop that attitude, and the ones who aren't blessed in
-              that way are the most competitive and have the biggest heart. -->
             </p>
             <h4 class="fav-quotes-author">
-              <!-- Tom Brady -->
             </h4>
           </div>
           <span>
@@ -161,12 +158,12 @@
           </span>
         </div>
         <div class="fav-sidebar-block">
-          <div class="fav-card">            
-              <svg class="fav-card-icon" width="20" height="20">
-                <use href="/Gym-squad/assets/sprite-97270506.svg#icon-dumbbell"></use>
-              </svg>
-              <h3 class="fav-card-title">110 min</h3>
-              <p class="fav-card-text">Daily norm of sports</p>
+          <div class="fav-card">
+            <svg class="fav-card-icon" width="20" height="20">
+              <use href="/Gym-squad/assets/sprite-97270506.svg#icon-dumbbell"></use>
+            </svg>
+            <h3 class="fav-card-title">110 min</h3>
+            <p class="fav-card-text">Daily norm of sports</p>
           </div>
           <picture>
             <source srcset="/Gym-squad/assets/fav-pc-b42c9416.jpg 1x, /Gym-squad/assets/fav-pc-2x-9df46396.png 2x" media="(min-width: 1280px)" />
@@ -176,16 +173,23 @@
           </picture>
         </div>
       </aside>
-      <div class="fav-exercises">
-        <div class="categories-wrapper"></div>
-      </div>      
-        <p class="fav-text">It appears that you haven't added any exercises to your favorites yet. To get started, you can
-          add exercises that you
-          like to your favorites for easier access in the future.</p>      
+      <div class="favorites-container"></div>      
+      <p class="fav-text">It appears that you haven't added any exercises to your favorites yet. To get started, you can
+        add exercises that you
+        like to your favorites for easier access in the future.</p>
     </div>
+    <button id="load-more-button" class="load-more-button">Load More</button>
+    <div class="modal-backdrop is-hidden">
+  <div class="modal">
+    <button class="modal-btn" data-modal-close>
+      <svg class="modal-btn-icon" width="28" height="28">
+        <use href="/Gym-squad/assets/sprite-97270506.svg#icon-close"></use>
+      </svg>
+    </button>
+  </div>
+</div>
+
   </section>
-
-
 
   
 </body>
