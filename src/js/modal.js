@@ -14,9 +14,6 @@ const getExercises = async id => {
   return response.data;
 };
 
-// Open modal window by clicking on button Start
-const startBtn = document.querySelector('exercises-btn');
-console.log(startBtn);
 // Close modal window by clicking on backdrope, ESC or button
 modalBackdrope.addEventListener('click', onModalBackdrope);
 closeBtn.addEventListener('click', onCloseModalBtn);
@@ -51,14 +48,12 @@ function onCloseModalBtn(event) {
 // Open modal by clicking button Start
 export function OpenModal(e) {
   const exerciseID = e.currentTarget.dataset.exerciseId;
-  console.log(exerciseID);
 
   //
-  //_id = '64f389465ae26083f39b17a4';
-  // замінити на event.target.data.id = '64f389465ae26083f39b17a4' '64f389465ae26083f39b1ab2'
+
   getExercises(exerciseID).then(data => {
     modalBackdrope.classList.remove('is-hidden');
-    console.log('55555');
+
     if (!data) {
       alert('Error');
 
@@ -110,7 +105,7 @@ export function OpenModal(e) {
     // Fill stars by rating
     const notFillStar = document.querySelectorAll('.star-item>use');
 
-    for (let i = 0; i < rating; i += 1) {
+    for (let i = 0; i < Math.floor(rating); i += 1) {
       notFillStar[i].style.fill = '#EEA10C';
     }
 
@@ -137,6 +132,14 @@ export function OpenModal(e) {
     //   modal.insertAdjacentHTML('beforeend', renderGitf(gifUrl, name));
 
     // Render Starts
+
+    function formatRating(rating) {
+      if (Number.isInteger(rating)) {
+        return rating + '.0';
+      } else {
+        return rating;
+      }
+    }
 
     function renderRating() {
       let starsMarkUp = '';
@@ -193,7 +196,7 @@ export function OpenModal(e) {
       <div class="container-for-desktop-info">
           <h2 class="modal-title">${name}</h2>
           <div class="rating-information">
-            <span class="stars-rating">${Math.round(rating)}.0</span>
+            <span class="stars-rating">${formatRating(rating)}</span>
             <ul class="stars-list">
             ${renderRating(rating)}
             </ul>
