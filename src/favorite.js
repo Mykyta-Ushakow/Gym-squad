@@ -1,5 +1,5 @@
 import '/js/header';
-import * as modal from '/js/modal';
+import { OpenModal } from '/js/modal';
 import svgSprite from '/img/sprite.svg';
 
 const quoteData = localStorage.getItem('quoteData');
@@ -85,15 +85,13 @@ function loadFavoriteCards() {
     .filter(cardData => cardData && cardData._id);
 }
 
-function createCardMarkup({
-name,
-  burnedCalories,
-  bodyPart,
-  target,
-  _id,
-}) {
+function removeExercise(exerciseId) {
+  localStorage.removeItem(exerciseId);
+}
+
+function createCardMarkup({ name, burnedCalories, bodyPart, target, _id }) {
   const cardMarkup = `
-    <li class="fav-exercises-item" data-exercise-id="${_id}">
+    <li class="fav-exercises-item">
       <div class="fav-exercises-header">
         <div class="fav-exercises-meta-container">
           <p class="fav-exercises-meta">WORKOUT</p>
@@ -104,10 +102,10 @@ name,
           </button>
         </div>
         <div class="fav-btn-container">
-          <button type="button" data-modal-open class="fav-exercises-btn open-modal-btn">Start</button>
+          <button type="button" data-modal-open class="fav-exercises-btn open-modal-btn" data-exercise-id="${_id}">Start
           <svg width="16" height="16" class="favorites-icon-arrow">
             <use id="favorites-icon-arrow" href="${svgSprite}#icon-arrow-right"></use>
-          </svg>
+          </svg></button>
         </div>
       </div>
       <div class="fav-exercises-name-container">
@@ -157,13 +155,34 @@ function displayFavoriteCards(page) {
     const favText = document.querySelector('.fav-text');
     favText.style.display = 'block';
   } else {
-      const favText = document.querySelector('.fav-text');
+    const favText = document.querySelector('.fav-text');
     favText.style.display = 'none';
   }
 
   cardsToDisplay.forEach(cardData => {
     const cardMarkup = createCardMarkup(cardData);
     favoritesContainer.insertAdjacentHTML('beforeend', cardMarkup);
+
+    const openModalBtn = favoritesContainer.querySelector(
+      `[data-exercise-id="${cardData._id}"]`
+    );
+    openModalBtn.addEventListener('click', event => {
+      if (event.target.closest('.open-modal-btn')) {
+        OpenModal(event);
+      }
+    });
+
+    const deleteButton = favoritesContainer.querySelector(
+      `[data-card-id="${cardData._id}"]`
+    );
+    deleteButton.addEventListener('click', event => {
+      event.stopPropagation();
+      removeExercise(cardData._id);
+      const listItem = deleteButton.closest('.fav-exercises-item');
+      if (listItem) {
+        listItem.remove();
+      }
+    });
   });
 }
 
