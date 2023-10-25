@@ -303,14 +303,22 @@
     align-items: center;
 }
 
-.favorites-icon-trash:hover,
-.favorites-icon-trash:focus {
+.favorites-btn-trash {
+    border: none;
+    background-color: var(--exercise-card-white);
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    display: block;
+}
+
+.favorites-btn-trash:hover,
+.favorites-btn-trash:focus {
     background-color: var(--text-color-dark);
     fill: var(--text-color-light);
     border-radius: 15px;
-    transform: scale(1.8);
-    padding: 2px;
-    cursor: pointer;
+    transform: scale(1.2);
+    padding: 1px;
 }
 
 .fav-exercises-btn {
@@ -395,26 +403,4 @@
 .fav-exercises-descr-span {
     display: inline-block;
     color: var(--text-color-dark);
-}
-
-.load-more-button {
-    border-radius: 15px;
-    border: 1px solid var(--text-color-dark);
-    display: inline-flex;
-    padding: 5px 7.5px;
-    justify-content: center;
-    align-items: center;
-    color: var(--text-color-dark);
-    font-weight: var(--exercises-font);
-    font-size: 12px;
-    margin: 20px auto 0;
-    background-color: var(--exercise-card-white);
-    text-transform: uppercase;
-}
-
-.load-more-button:hover,
-.load-more-button:focus {
-    background-color: var(--text-color-dark);
-    color: var(--text-color-light);
-    border-color: var(--exercise-card-white);
 }
