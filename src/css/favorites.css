@@ -483,3 +483,24 @@
         padding-bottom: 0;
     }
 }
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(36, 36, 36, 0.10);
+    border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-color-dark);
+    border-radius: 12px;
+    width: 8px;
+    height: 153px;
+    flex-shrink: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(17, 17, 17, 0.767);
+}
