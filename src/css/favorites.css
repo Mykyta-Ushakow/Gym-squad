@@ -8,7 +8,7 @@
     }
 
     @media screen and (min-width: 1280px) {
-        padding: 90px 32px 51px;
+        padding: 90px 0 51px 32px;
     }
 }
 
@@ -246,7 +246,12 @@
 
     @media screen and (min-width: 1280px) {
         margin-top: unset;
-        justify-content: center;       
+        justify-content: center;
+        padding: 0 20px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        padding: 0 32px;
     }
 }
 
@@ -407,4 +412,73 @@
 .fav-exercises-descr-span {
     display: inline-block;
     color: var(--text-color-dark);
+}
+
+.pagination-container {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 80px;
+}
+
+.pagination-container button {
+    background-color: var(--text-color-light);
+    color: var(--pagination-grey);
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: 0.04;
+    transition: color 0.3s, border-bottom 0.3s;
+    align-items: center;
+}
+
+.pagination-container button:hover,
+.pagination-container button:focus,
+.pagination-container button.active {
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+    border: 1px solid var(--text-color-dark);
+    color: var(--text-color-dark);
+
+    transition: opacity 0.3s;
+}
+
+.pagination-container button:disabled {
+    color: var(--pagination-grey);
+    border: none;
+    cursor: default;
+}
+
+.pagination-container button:disabled:focus,
+.pagination-container button:disabled:hover {
+    width: unset;
+    height: unset;
+}
+
+@media screen and (min-width: 768px) {
+    .pagination-container button {
+        font-size: 24px;
+        line-height: 1.33;
+    }
+
+    .pagination-container button:hover,
+    .pagination-container button:focus,
+    .pagination-container button.active {
+        width: 33px;
+        height: 33px;
+    }
+
+    .pagination-container {
+        padding-bottom: 64px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .pagination-container {
+        padding-bottom: 0;
+    }
 }

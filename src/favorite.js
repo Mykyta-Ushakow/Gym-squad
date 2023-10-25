@@ -238,6 +238,12 @@ function handlePagination(data, currentPage) {
         const page = parseInt(pageNumber);
         displayFavoriteCards(page);
       });
+
+      const previousActiveButton =
+        paginationContainer.querySelector('button.active');
+      if (previousActiveButton) {
+        previousActiveButton.classList.remove('active');
+      }
     } else {
       pageButton.disabled = true;
     }
