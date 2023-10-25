@@ -1,4 +1,4 @@
-import{O as E,s as g}from"./sprite-b850cd97.js";const y=localStorage.getItem("quoteData");let d="",u="",v="";if(y){const{quote:e,author:t,date:n}=JSON.parse(y);d=e,u=t,v=n}const S=new Date().toLocaleDateString(),M=S!==v;M?fetch("https://your-energy.b.goit.study/api/quote").then(e=>e.json()).then(e=>{d=e.quote,u=e.author,v=S,localStorage.setItem("quoteData",JSON.stringify({quote:d,author:u,date:v})),q(d,u)}).catch(e=>{console.error("Error",e)}):q(d,u);function q(e,t){const n=document.querySelector(".fav-quote"),s=document.querySelector(".fav-quotes-author");n.textContent=e,s.textContent=t}let p=[],f=1,c=8;function b(){const e=window.innerWidth;e<768?c=8:e>=768&&e<1280?c=10:e>=1280&&(c=6),m(f)}window.addEventListener("resize",b);b();function w(){p=Object.values(localStorage).map(e=>{try{return JSON.parse(e)}catch{return null}}).filter(e=>e&&e._id)}function C(e){localStorage.removeItem(e)}function $({name:e,burnedCalories:t,bodyPart:n,target:s,_id:r}){return`
+import{O as E,s as g}from"./sprite-152cc6b8.js";const y=localStorage.getItem("quoteData");let d="",u="",v="";if(y){const{quote:e,author:t,date:n}=JSON.parse(y);d=e,u=t,v=n}const S=new Date().toLocaleDateString(),M=S!==v;M?fetch("https://your-energy.b.goit.study/api/quote").then(e=>e.json()).then(e=>{d=e.quote,u=e.author,v=S,localStorage.setItem("quoteData",JSON.stringify({quote:d,author:u,date:v})),q(d,u)}).catch(e=>{console.error("Error",e)}):q(d,u);function q(e,t){const n=document.querySelector(".fav-quote"),s=document.querySelector(".fav-quotes-author");n.textContent=e,s.textContent=t}let p=[],f=1,c=8;function b(){const e=window.innerWidth;e<768?c=8:e>=768&&e<1280?c=10:e>=1280&&(c=6),m(f)}window.addEventListener("resize",b);b();function w(){p=Object.values(localStorage).map(e=>{try{return JSON.parse(e)}catch{return null}}).filter(e=>e&&e._id)}function C(e){localStorage.removeItem(e)}function $({name:e,burnedCalories:t,bodyPart:n,target:s,_id:r}){return`
     <li class="fav-exercises-item">
       <div class="fav-exercises-header">
         <div class="fav-exercises-meta-container">
@@ -10,10 +10,10 @@ import{O as E,s as g}from"./sprite-b850cd97.js";const y=localStorage.getItem("qu
           </button>
         </div>
         <div class="fav-btn-container">
-          <button type="button" data-modal-open class="fav-exercises-btn open-modal-btn" data-exercise-id="${r}">Start</button>
+          <button type="button" data-modal-open class="fav-exercises-btn open-modal-btn" data-exercise-id="${r}">Start
           <svg width="16" height="16" class="favorites-icon-arrow">
             <use id="favorites-icon-arrow" href="${g}#icon-arrow-right"></use>
-          </svg>
+          </svg></button>
         </div>
       </div>
       <div class="fav-exercises-name-container">
