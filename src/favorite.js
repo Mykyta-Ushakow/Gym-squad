@@ -61,8 +61,10 @@ function updateCardsPerPage() {
     cardsPerPage = 8;
   } else if (screenWidth >= 768 && screenWidth < 1280) {
     cardsPerPage = 10;
+    showPagination();
   } else if (screenWidth >= 1280) {
-    cardsPerPage = 6;
+    cardsPerPage = favoriteCards.length;
+    hidePagination();
   }
 
   displayFavoriteCards(currentPage);
@@ -70,7 +72,21 @@ function updateCardsPerPage() {
 
 window.addEventListener('resize', updateCardsPerPage);
 
-updateCardsPerPage();
+function showPagination() {
+  const paginationContainer = document.getElementById('pagination');
+  paginationContainer.style.display = 'block';
+  const favoritesContainer = document.querySelector('.favorites-container');
+  favoritesContainer.style.maxHeight = 'auto';
+  favoritesContainer.style.overflowY = 'hidden';
+}
+
+function hidePagination() {
+  const paginationContainer = document.getElementById('pagination');
+  paginationContainer.style.display = 'none';
+  const favoritesContainer = document.querySelector('.favorites-container');
+  favoritesContainer.style.maxHeight = '487px'; // Set a suitable max height
+  favoritesContainer.style.overflowY = 'scroll';
+}
 
 function loadFavoriteCards() {
   favoriteCards = Object.values(localStorage)
@@ -78,7 +94,6 @@ function loadFavoriteCards() {
       try {
         return JSON.parse(item);
       } catch (error) {
-        // console.error('Error parsing JSON data:', error);
         return null;
       }
     })
@@ -142,6 +157,8 @@ function createCardMarkup({ name, burnedCalories, bodyPart, target, _id }) {
 
   return cardMarkup;
 }
+
+
 
 function displayFavoriteCards(page) {
   const favoritesContainer = document.querySelector('.favorites-container');
@@ -238,6 +255,12 @@ function handlePagination(data, currentPage) {
         const page = parseInt(pageNumber);
         displayFavoriteCards(page);
       });
+
+      const previousActiveButton =
+        paginationContainer.querySelector('button.active');
+      if (previousActiveButton) {
+        previousActiveButton.classList.remove('active');
+      }
     } else {
       pageButton.disabled = true;
     }
