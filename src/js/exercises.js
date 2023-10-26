@@ -24,13 +24,35 @@ function setLimit() {
   return isLargeScreen ? 10 : 8;
 }
 
+document
+  .querySelector('#bodyPartsButton')
+  .addEventListener('click', clearResults);
+document
+  .querySelector('#musclesButton')
+  .addEventListener('click', clearResults);
+document
+  .querySelector('#equipmentButton')
+  .addEventListener('click', clearResults);
+
+  // Function to clear results
+function clearResults() {
+  const resultItem = document.getElementById('exerciseResult');
+  resultItem.textContent = '';
+}
+
 export function onClick(event) {
   const card = event.currentTarget;
   const category = card.dataset.category;
   const name = card.dataset.name; 
 
+  const resultItem = document.getElementById('exerciseResult');
+
   fetchExercises(category, name)
     .then(resp => {
+      // 
+      const bodyPartResult = resp.results[0].bodyPart;
+      resultItem.innerHTML = `<span class="divider">/</span>${bodyPartResult}`;
+
       // Displaying the exercise cards
       const list = document.querySelector('.filter-gallery');
       list.innerHTML = createExercisesMarkup(resp.results);
@@ -301,7 +323,7 @@ function handleSearchSubmit(event) {
   const searchTerm = searchInput.value;
 
   // Get the current page from the pagination buttons or use a default value
-  const currentPage = 1; // Replace with logic to get the current page
+  const currentPage = 1;
 
   if(searchTerm) {
     searchAndPaginateExercises(category, name, searchTerm, currentPage);
@@ -314,7 +336,7 @@ async function searchAndPaginateExercises(category, name, keyword, page) {
   try {
     const apiUrl = `${BASE_URL}${EXERCISE_ENDPOINT}?${category}=${name}&keyword=${keyword}&page=${page}&limit=${limit}`;
     const response = await axios.get(apiUrl);
-    console.log(response);
+    // console.log(response);
 
     if (response.data.results.length > 0) {
       // The new set of exercise items
@@ -329,8 +351,10 @@ async function searchAndPaginateExercises(category, name, keyword, page) {
       handleExercisePagination(response.data, category, name);
     } else {
       // Display a message if no results are found
-      const list = document.querySelector('.filter-gallery');
-      list.innerHTML = '<p>No results found.</p>';
+      // const list = document.querySelector('.filter-gallery');
+      // list.innerHTML = '<p>No results found.</p>';
+      
+      Notiflix.Report.info('No results found', '', 'Ok');
     }
   } catch (error) {
     console.error('Error fetching exercises:', error);
