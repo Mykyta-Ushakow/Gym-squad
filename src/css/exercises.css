@@ -211,16 +211,17 @@
     border: 1px solid var(--text-color-dark);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
 
-    padding-top: 12px;
+    /* justify-content: space-between; */
+
+    /* padding-top: 12px;
     padding-bottom: 12px;
     padding-left: 14px;
-    padding-right: 14px;
+    padding-right: 14px; */
 
     max-width: 335px;
-    margin-left: 20px;
-    margin-bottom: 20px;
+    margin: 0 19px;
 }
 
 .search-input{
@@ -230,20 +231,62 @@
     width: 289px;
     max-width: 100%;
     color: var(--text-color-dark);
+
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 14px;
+    padding-right: 0;
 }
 
 .search-input:focus{
     background-color: transparent;
+    outline: none;
 }
 
-.search-button{
+.search-button, 
+.clear-search-button{
     border: none;
     background-color: transparent;
     padding: 0;
+    width: 46px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .search-search-svg{}
 
+@media screen and (max-width: 374px) {
+    .exercises-list {
+        list-style: none;
+        display: flex;
+        max-width: 335px;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .exercises-item {
+        max-width: 280px;
+        height: 141px;
+        flex-shrink: 0;
+        background: var(--exercise-card-white);
+        border-radius: 15px;
+        padding: 16px;
+    
+    }
+    .exercises-descr-list {
+        overflow: hidden;
+    }
+}
 
 @media screen and (min-width: 768px) {
     .exercises-list {

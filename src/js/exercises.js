@@ -1,5 +1,6 @@
 // import * as main from "../main";
 import svgSprite from '../img/sprite.svg';
+import Notiflix from 'notiflix';
 
 export const API_PROPS = Object.freeze({
   BASE_URL: 'https://your-energy.b.goit.study/api',
@@ -51,6 +52,20 @@ export function onClick(event) {
         searchForm.addEventListener('submit', handleSearchSubmit);
       }
 
+      // Add input event listener for the search input
+
+      const searchInput = searchContainer.querySelector('.search-input');
+      if (searchInput) {
+        searchInput.addEventListener('input', handleSearchInput);
+      }
+    
+      // Add click event listener for the clear button
+      const clearButton = searchContainer.querySelector('.clear-search-button');
+      if (clearButton) {
+        clearButton.addEventListener('click', handleClearSearch);
+      }
+    
+
       // Pagination
       handleExercisePagination(resp, card.dataset.category, card.dataset.name);
     })
@@ -82,10 +97,43 @@ function createSearchBar(category, name) {
           <use href="${svgSprite}#icon-search"></use>
         </svg>
       </button>
+      <button type="button" class="clear-search-button" style="display: none">
+        <svg class="search-svg" width="18" height="18">
+          <use href="${svgSprite}#icon-close"></use>
+        </svg>
+      </button>
     </form>
   `;
   return searchMarkup;
 }
+
+function handleSearchInput(event) {
+  const searchInput = event.target;
+  const clearButton = searchInput.parentNode.querySelector('.clear-search-button');
+  const submitButton = searchInput.parentNode.querySelector('.search-button');
+
+  if (searchInput.value.trim() !== '') {
+    clearButton.style.display = 'block';
+    submitButton.style.display = 'none';
+  } else {
+    clearButton.style.display = 'none';
+    submitButton.style.display = 'block';
+  }
+}
+
+function handleClearSearch(event) {
+  const clearButton = event.currentTarget;
+  const searchForm = clearButton.closest('.search-form');
+
+  if (searchForm) {
+    const searchInput = searchForm.querySelector('.search-input');
+    searchInput.value = ''; // Clear the input field
+    clearButton.style.display = 'none'; // Hide the clear button
+    const submitButton = searchForm.querySelector('.search-button');
+    submitButton.style.display = 'block'; // Show the submit button
+  }
+}
+
 
 export function createExercisesMarkup(data) {
   return `<ul class="exercises-list">${data.map(createMarkup).join('')}</ul>`;
