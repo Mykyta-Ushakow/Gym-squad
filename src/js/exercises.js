@@ -269,9 +269,13 @@ async function searchAndPaginateExercises(category, name, keyword, page) {
     console.log(response);
 
     if (response.data.results.length > 0) {
-      // Display the new set of exercise items
+      // The new set of exercise items
       const list = document.querySelector('.filter-gallery');
       list.innerHTML = createExercisesMarkup(response.data.results);
+
+      // Listeners to open modal window
+      const startModalBtns = document.querySelectorAll('.exercises-btn');
+      startModalBtns.forEach(el => el.addEventListener('click', OpenModal));
 
       // Pagination
       handleExercisePagination(response.data, category, name);
