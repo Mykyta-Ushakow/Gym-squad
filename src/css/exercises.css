@@ -348,7 +348,12 @@
     .search-form {
         margin: 0;
         margin-bottom: 40px;
-        width: 271px;
+        width: 273px;
+    }
+
+    .search-input {
+        width: 225px;
+
     }
 }
 
