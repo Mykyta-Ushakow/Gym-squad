@@ -112,16 +112,18 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 32px 42px 32px;
+    padding: 0 32px 32px 32px;
   }
 
   .categories_h {
     padding-left: 0;
+    padding-bottom: 0;
   }
 
   .categories_button {
     display: flex;
     gap: 20px;
+    padding-bottom: 0;
   }
 }
 
