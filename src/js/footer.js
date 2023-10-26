@@ -1,5 +1,7 @@
 // import * as main from '../main';
 import axios from 'axios';
+import Notiflix from 'notiflix';
+
 document
   .querySelector('#subscriptionForm')
   .addEventListener('submit', function (event) {
@@ -9,19 +11,22 @@ document
     const email = emailInput.value;
 
     if (!checkValidity(email)) {
-      alert('Будь ласка, введіть коректну електронну пошту');
+      Notiflix.Notify.Failure('Будь ласка, введіть коректну електронну пошту');
+      options;
     } else {
       axios
         .post('https://your-energy.b.goit.study/api/subscription', {
           email: email,
         })
         .then(function (response) {
-          alert('Ваш запит успішно відправлено');
+          Notiflix.Notify.Success('Ваш запит успішно відправлено');
           emailInput.value = '';
+          options;
         })
         .catch(function (error) {
-          alert('Помилка відправки запиту');
+          Notiflix.Notify.Failure('Помилка відправки запиту');
           emailInput.value = '';
+          options;
         });
     }
   });
