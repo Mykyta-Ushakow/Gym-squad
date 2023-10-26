@@ -18,8 +18,6 @@ const { BASE_URL, EXERCISE_ENDPOINT } = API_PROPS;
 // const base_url = 'https://mykyta-ushakow.github.io/Gym-squad/';
 // const svgPath = `${base_url}src/img/sprite.svg`;
 
-let previousExercisePage = 1;
-
 function setLimit() {
   const isLargeScreen = window.matchMedia('(min-width: 768px)').matches;
   return isLargeScreen ? 10 : 8;
@@ -27,18 +25,31 @@ function setLimit() {
 
 export function onClick(event) {
   const card = event.currentTarget;
+  const category = card.dataset.category;
+  const name = card.dataset.name; 
 
-  // console.log(card.dataset.name, card.dataset.category);
-
-  fetchExercises(card.dataset.category, card.dataset.name)
+  fetchExercises(category, name)
     .then(resp => {
       // Displaying the exercise cards
-      // console.log(resp);
       const list = document.querySelector('.filter-gallery');
       list.innerHTML = createExercisesMarkup(resp.results);
       const startModalBtns = document.querySelectorAll('.exercises-btn');
 
       startModalBtns.forEach(el => el.addEventListener('click', OpenModal));
+      
+      // Displaying the search bar with filter data
+
+      const searchContainer = document.querySelector('.search-container');
+      const searchFormHTML = createSearchBar(category, name); 
+
+      if (searchContainer && searchFormHTML) {
+        searchContainer.insertAdjacentHTML('afterbegin', searchFormHTML);
+      }
+
+      const searchForm = searchContainer.querySelector('.search-form');
+      if (searchForm) {
+        searchForm.addEventListener('submit', handleSearchSubmit);
+      }
 
       // Pagination
       handleExercisePagination(resp, card.dataset.category, card.dataset.name);
@@ -60,6 +71,20 @@ export async function fetchExercises(category, filter, page = 1) {
 
   //   return response;
   return response.data;
+}
+
+function createSearchBar(category, name) {
+  const searchMarkup = `
+    <form class="search-form" data-category="${category}" data-name="${name}">
+      <input type="text" class="search-input" name="search-input" placeholder="Search">
+      <button type="submit" class="search-button">
+        <svg class="search-svg" width="18" height="18">
+          <use href="${svgSprite}#icon-search"></use>
+        </svg>
+      </button>
+    </form>
+  `;
+  return searchMarkup;
 }
 
 export function createExercisesMarkup(data) {
@@ -210,5 +235,52 @@ function handleExercisePagination(data, category, filter) {
 
       paginationContainer.appendChild(pageButton);
     });
+  }
+}
+
+export function removeSearchForm() {
+  const searchForm = document.querySelector('.search-form');
+  if (searchForm) {
+    searchForm.remove();
+  }
+}
+
+function handleSearchSubmit(event) {
+  event.preventDefault();
+  const category = event.currentTarget.dataset.category;
+  const name = event.currentTarget.dataset.name;
+  const searchInput = event.currentTarget.querySelector('.search-input');
+  const searchTerm = searchInput.value;
+
+  // Get the current page from the pagination buttons or use a default value
+  const currentPage = 1; // Replace with logic to get the current page
+
+  if(searchTerm) {
+    searchAndPaginateExercises(category, name, searchTerm, currentPage);
+  }
+}
+
+async function searchAndPaginateExercises(category, name, keyword, page) {
+  const limit = setLimit();
+
+  try {
+    const apiUrl = `${BASE_URL}${EXERCISE_ENDPOINT}?${category}=${name}&keyword=${keyword}&page=${page}&limit=${limit}`;
+    const response = await axios.get(apiUrl);
+    console.log(response);
+
+    if (response.data.results.length > 0) {
+      // Display the new set of exercise items
+      const list = document.querySelector('.filter-gallery');
+      list.innerHTML = createExercisesMarkup(response.data.results);
+
+      // Pagination
+      handleExercisePagination(response.data, category, name);
+    } else {
+      // Display a message if no results are found
+      const list = document.querySelector('.filter-gallery');
+      list.innerHTML = '<p>No results found.</p>';
+    }
+  } catch (error) {
+    console.error('Error fetching exercises:', error);
   }
 }

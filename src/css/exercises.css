@@ -206,6 +206,44 @@
     color: var(--text-color-dark);
 }
 
+.search-form{
+    border-radius: 30px;
+    border: 1px solid var(--text-color-dark);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 14px;
+    padding-right: 14px;
+
+    max-width: 335px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.search-input{
+    background-color: inherit;
+    border: none;
+    outline: none;
+    width: 289px;
+    max-width: 100%;
+    color: var(--text-color-dark);
+}
+
+.search-input:focus{
+    background-color: transparent;
+}
+
+.search-button{
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+.search-search-svg{}
+
 
 @media screen and (min-width: 768px) {
     .exercises-list {

@@ -1,5 +1,7 @@
 // import * as main from '../main';
 import { onClick } from './exercises';
+import { removeSearchForm } from './exercises';
+
 
 let activeFilter = 'Body parts'; // Initialize with a default value
 
@@ -99,16 +101,19 @@ const musclesButton = document.getElementById('musclesButton');
 const equipmentButton = document.getElementById('equipmentButton');
 
 bodyPartsButton.addEventListener('click', function () {
+  removeSearchForm();
   searchImages('Body parts');
   bodyPartsButton.classList.add('active');
 });
 
 musclesButton.addEventListener('click', function () {
+  removeSearchForm();
   searchImages('Muscles');
   musclesButton.classList.add('active');
 });
 
 equipmentButton.addEventListener('click', function () {
+  removeSearchForm();
   searchImages('Equipment');
   equipmentButton.classList.add('active');
 });
