@@ -23,24 +23,47 @@ function setLimit() {
   return isLargeScreen ? 10 : 8;
 }
 
+document
+  .querySelector('#bodyPartsButton')
+  .addEventListener('click', clearResults);
+document
+  .querySelector('#musclesButton')
+  .addEventListener('click', clearResults);
+document
+  .querySelector('#equipmentButton')
+  .addEventListener('click', clearResults);
+
+// Function to clear results
+function clearResults() {
+  const resultItem = document.getElementById('exerciseResult');
+  resultItem.textContent = '';
+}
+
 export function onClick(event) {
   const card = event.currentTarget;
   const category = card.dataset.category;
-  const name = card.dataset.name; 
+  const name = card.dataset.name;
+
+  // Get the existing <p> element
+  const resultItem = document.getElementById('exerciseResult');
 
   fetchExercises(category, name)
     .then(resp => {
+      const bodyPartResult = resp.results[0].bodyPart;
+      //resultItem.textContent = `<span class="divider">/</span>${bodyPartResult}`;
+
+      resultItem.innerHTML = `<span class="divider">/</span>${bodyPartResult}`;
+
       // Displaying the exercise cards
       const list = document.querySelector('.filter-gallery');
       list.innerHTML = createExercisesMarkup(resp.results);
       const startModalBtns = document.querySelectorAll('.exercises-btn');
 
       startModalBtns.forEach(el => el.addEventListener('click', OpenModal));
-      
-      // Displaying the search bar with filter data
 
+      // Displaying the search bar with filter data
       const searchContainer = document.querySelector('.search-container');
-      const searchFormHTML = createSearchBar(category, name); 
+      const searchFormHTML = createSearchBar(category, name);
 
       if (searchContainer && searchFormHTML) {
         searchContainer.insertAdjacentHTML('afterbegin', searchFormHTML);
@@ -255,7 +278,7 @@ function handleSearchSubmit(event) {
   // Get the current page from the pagination buttons or use a default value
   const currentPage = 1; // Replace with logic to get the current page
 
-  if(searchTerm) {
+  if (searchTerm) {
     searchAndPaginateExercises(category, name, searchTerm, currentPage);
   }
 }
