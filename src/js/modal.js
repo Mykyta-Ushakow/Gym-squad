@@ -1,6 +1,7 @@
 // import * as main from "../main";
 import axios from 'axios';
 import svgSprite from '../img/sprite.svg';
+import { Notify } from 'notiflix';
 
 // Liseners for backdrope
 const modal = document.querySelector('.modal');
@@ -56,7 +57,7 @@ export function OpenModal(e) {
     modalBackdrope.classList.remove('is-hidden');
 
     if (!data) {
-      alert('Error');
+      Notify.failure(`Something went wrong. Please try again later.`);
 
       return;
     }
