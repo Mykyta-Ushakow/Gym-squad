@@ -13,8 +13,11 @@
   list-style: none;
   padding: 0;
   display: flex;
-  gap: 10px; 
+  gap: 10px;  
+  margin-left: -5px;
 }
+
+
 .hero-title h1 {
   color: var(--text-color-dark);
   font-family: var(--main-font);
@@ -80,7 +83,12 @@
   display: block;
   width: fit-content;
 }
+
 @media screen and (max-width: 374px) {
+   .hero-tag-span {
+    font-size: 8px
+  }
+ 
   .hero-img-tab {
     display: none;
   }
@@ -88,10 +96,37 @@
     display: none;
   }
   .hero-tag-list {   
-    display: flex;
-    flex-wrap: wrap;
-  }
+    display: flex; 
+    flex-wrap: wrap;  
+    width: 285px;
+    margin-left: 0;
+  } 
+
 }
+
+@media screen and (max-width: 320px) {
+  .hero-tag-span {
+   font-size: 8px
+ }
+
+ .hero-img-tab {
+   display: none;
+ }
+ .hero-img-web {
+   display: none;
+ }
+ .hero-tag-list {   
+   display: flex; 
+   flex-wrap: wrap;  
+   width: 285px;  
+   margin-left: -9px;
+    justify-content: space-between;
+ } 
+
+}
+
+
+
 @media screen and (max-width: 767px) {
   .hero-img-tab {
     display: none;
@@ -148,12 +183,9 @@
     gap: 8px;
     height: 32px;
     margin-top: 16px;
-    margin-left: 338px;
+    margin-left: 335px;
   }
-  /* .hero-tag-item {
-    flex: 1 1 calc(33.33% - 32px);
-    max-width: calc(33.33% - 32px);
-  } */
+
   .hero-tag-span {
     color: var(--text-color-dark);
     font-family: var(--main-font); /*Neue Montreal;*/
