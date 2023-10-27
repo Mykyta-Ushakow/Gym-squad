@@ -11,18 +11,18 @@ document
     const email = emailInput.value;
 
     if (!checkValidity(email)) {
-      Notiflix.Notify.failure('Будь ласка, введіть коректну електронну пошту');
+      Notiflix.Notify.failure('Please enter a valid email address');
     } else {
       axios
         .post('https://your-energy.b.goit.study/api/subscription', {
           email: email,
         })
         .then(function (response) {
-          Notiflix.Notify.success('Ваш запит успішно відправлено');
+          Notiflix.Notify.success('Your request has been successfull');
           emailInput.value = '';
         })
         .catch(function (error) {
-          Notiflix.Notify.failure('Помилка відправки запиту');
+          Notiflix.Notify.failure('Request error');
           emailInput.value = '';
         });
     }
