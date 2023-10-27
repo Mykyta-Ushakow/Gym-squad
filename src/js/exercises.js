@@ -1,6 +1,7 @@
 // import * as main from "../main";
 import svgSprite from '../img/sprite.svg';
 import Notiflix from 'notiflix';
+import { scrollToCategoriesTitle } from './categories.js';
 
 export const API_PROPS = Object.freeze({
   BASE_URL: 'https://your-energy.b.goit.study/api',
@@ -275,6 +276,8 @@ function handleExercisePagination(data, category, filter) {
 
       if (pageNumber !== '...') {
         pageButton.addEventListener('click', event => {
+          scrollToCategoriesTitle();
+
           const page = parseInt(pageNumber);
           fetchExercises(category, filter, page).then(resp => {
             const list = document.querySelector('.filter-gallery');

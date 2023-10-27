@@ -15,6 +15,11 @@
   border-radius: 15px;
   padding: 16px;
 }
+.exercises-item:hover,
+.exercises-item:focus {
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
 
 .exercises-header {
   display: flex;
@@ -258,9 +263,6 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-
-.search-search-svg {
 }
 
 @media screen and (max-width: 374px) {

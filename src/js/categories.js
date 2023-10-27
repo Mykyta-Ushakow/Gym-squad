@@ -2,6 +2,7 @@
 import { onClick } from './exercises';
 import { removeSearchForm } from './exercises';
 
+let currentPage = 1;
 
 let activeFilter = 'Body parts'; // Initialize with a default value
 
@@ -71,22 +72,40 @@ async function searchImages(filter, page = 1) {
       }
       /* пагінація*/
       const paginationContainer = document.getElementById('pagination');
+  
       paginationContainer.innerHTML = '';
-
+    
       if (data.totalPages > 1) {
         for (let i = 1; i <= data.totalPages; i++) {
           const pageButton = document.createElement('button');
           pageButton.textContent = i;
           pageButton.addEventListener('click', () => {
-            searchImages(filter, i);
+            handlePageButtonClick(i);
+            scrollToCategoriesTitle();
           });
+    
+          // Add a class to style the current page button
           if (i === page) {
             pageButton.classList.add('active');
           }
-
+    
           paginationContainer.appendChild(pageButton);
         }
       }
+
+      function handlePageButtonClick(page) {
+        // Update the current page
+        currentPage = page;
+    
+        // Update the active class for the page buttons
+        const buttons = paginationContainer.querySelectorAll('button');
+        buttons.forEach(button => button.classList.remove('active'));
+        buttons[page - 1].classList.add('active');
+    
+        // Call your pagination-related logic here
+        searchImages(filter, page);
+      }
+
       /*------------*/
     } else {
       console.error('Error fetching images from the API');
@@ -126,3 +145,15 @@ window.addEventListener('load', () => {
   searchImages('Body parts');
   bodyPartsButton.classList.add('active');
 });
+
+export function scrollToCategoriesTitle() {
+  const categoriesTitleElement = document.querySelector('.categories_title');
+  if (categoriesTitleElement) {
+    const elementTop = categoriesTitleElement.getBoundingClientRect().top + window.scrollY;
+    
+    window.scrollTo({
+      top: elementTop,
+      behavior: 'smooth'
+    });
+  }
+}
