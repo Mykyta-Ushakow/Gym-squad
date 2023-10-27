@@ -350,11 +350,20 @@ async function searchAndPaginateExercises(category, name, keyword, page) {
       // Pagination
       handleExercisePagination(response.data, category, name);
     } else {
-      // Display a message if no results are found
-      // const list = document.querySelector('.filter-gallery');
-      // list.innerHTML = '<p>No results found.</p>';
       
-      Notiflix.Report.info('No results found', '', 'Ok');
+      Notiflix.Report.info('No results found', '', 'Ok', {
+        titleFontSize: '24px',
+        fontFamily: 'Neue Montreal',
+        backgroundColor: 'rgba(36, 36, 36, 1)',
+        info: {
+          messageColor: 'rgba(36, 36, 36, 1)',
+          svgColor: 'rgba(244, 244, 244, 1)',
+          backOverlayColor: 'rgba(4, 4, 4, 0.40);',
+          titleColor: 'rgba(244, 244, 244, 1)',
+          buttonBackground: 'rgba(244, 244, 244, 1)',
+          buttonColor: 'rgba(36, 36, 36, 1)',
+        }
+      });
     }
   } catch (error) {
     console.error('Error fetching exercises:', error);
