@@ -35,7 +35,7 @@ document
   .querySelector('#equipmentButton')
   .addEventListener('click', clearResults);
 
-  // Function to clear results
+
 function clearResults() {
   const resultItem = document.getElementById('exerciseResult');
   resultItem.textContent = '';
@@ -227,7 +227,7 @@ function handleExercisePagination(data, category, filter) {
     const totalPages = data.totalPages;
 
     let pagesToDisplay = [];
-    const maxButtons = 7; // You want to display 7 buttons at most
+    const maxButtons = 7; // 7 buttons at most
 
     if (totalPages <= maxButtons) {
       // If there are fewer pages than the maximum allowed buttons, show all pages
